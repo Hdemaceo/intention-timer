@@ -18,19 +18,27 @@
         <section class="body">
           <div class="categories">Select a category:
             <div class="category-names">
-              <button type="button" class="study-button"><img src="assets/study.svg">Study</button>
-              <button type="button" class="meditate-button"><img src="assets/meditate.svg">Meditate</button>
-              <button type="button" class="exercise-button"><img src="assets/exercise.svg">Exercise</button>
+              <button type="button" class="category-button study"><img src="assets/study.svg">Study</button>
+              <button type="button" class="category-button meditate"><img src="assets/meditate.svg">Meditate</button>
+              <button type="button" class="category-button exercise"><img src="assets/exercise.svg">Exercise</button>
             </div>
             <form>
               <label for="user-input">What would you like to accomplish during this time?</label><br>
-              <input type="text" name="user-input" value="">
-              <label for="user-minutes">Minutes</label>
-              <input type="text" name="user-minutes" value="">
-              <label for="user-seconds">Seconds</label>
-              <input type="text" name="user-seconds" value="">
+              <input type="text" name="user-input" value=""><br>
+              <section class="user-time">
+                <section class="user-minutes">
+                  <label for="user-minutes">Minutes</label>
+                  <input type="text" name="user-minutes" value="">
+                  </section>
+                  <section class="user-seconds">
+                    <label for="user-seconds">Seconds</label>
+                    <input type="text" name="user-seconds" value="">
+                </section>
+              </section>
             </form>
-            <button class="start-button">Start Activity</button>
+            <div class="start-section">
+              <button class="start-button">START ACTIVITY</button>
+            </div>
           </div>
         </section>
       </section>
@@ -39,12 +47,9 @@
           Past Activities
         </div>
         <div class="logged-activities">
-          You haven't logged any activities yet.  Complete the form to get started.
+          You haven't logged any activities yet.<br> Complete the form to the left to get started!
         </div>
-
       </section>
     </main>
-
-
   </body>
 </html>

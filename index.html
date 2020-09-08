@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Intention Timer</title>
+  </head>
+  <body>
+    <header>
+      <h1>INTENTION TIMER</h1>
+    </header>
+    <main>
+      <section class="new-activity-section">
+        <div class="new-activity-title">
+          New Activity
+        </div>
+        <section class="body">
+          <div class="categories">Select a category:
+            <div class="category-names">
+              <button type="button" class="study-button"><img src="assets/study.svg">Study</button>
+              <button type="button" class="meditate-button"><img src="assets/meditate.svg">Meditate</button>
+              <button type="button" class="exercise-button"><img src="assets/exercise.svg">Exercise</button>
+            </div>
+            <form>
+              <label for="user-input">What would you like to accomplish during this time?</label><br>
+              <input type="text" name="user-input" value="">
+              <label for="user-minutes">Minutes</label>
+              <input type="text" name="user-minutes" value="">
+              <label for="user-seconds">Seconds</label>
+              <input type="text" name="user-seconds" value="">
+            </form>
+            <button class="start-button">Start Activity</button>
+          </div>
+        </section>
+      </section>
+      <section class="past-activities-section">
+        <div class="past-activities-title">
+          Past Activities
+        </div>
+        <div class="logged-activities">
+          You haven't logged any activities yet.  Complete the form to get started.
+        </div>
 
+      </section>
+    </main>
+
+
+  </body>
+</html>

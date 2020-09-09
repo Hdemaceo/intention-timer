@@ -1,5 +1,6 @@
 
 //--------------QUERY SELECTORS--------------:
+var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
 var meditateActivity = document.querySelector(".meditate");
 var exerciseActivity = document.querySelector(".exercise");
@@ -24,6 +25,7 @@ var currentActivity = new Activity();
 studyActivity.addEventListener("click", changeStudyColor);
 meditateActivity.addEventListener("click", changeMeditateColor);
 exerciseActivity.addEventListener("click", changeExerciseColor);
+categories.addEventListener("click", toggleDisabled);
 userInput.addEventListener("keyup", toggleDisabled);
 userMinutes.addEventListener("keyup", toggleDisabled);
 userSeconds.addEventListener("keyup", toggleDisabled);
@@ -32,11 +34,11 @@ startButton.addEventListener("click", displayTimerPage)
 //--------------FUNCTIONS--------------:
 
 function toggleDisabled() {
-  if(isNaN(userMinutes.value) || isNaN(userSeconds.value)) {
-    startButton.disabled = true;
-  } else if(userMinutes.value.includes(" ") || userSeconds.value.includes(" ")) {
-    startButton.disabled = true;
-  } else if(userInput.value === "" || userMinutes.value === ""){
+  if(isNaN(userMinutes.value) || isNaN(userSeconds.value)
+  || userMinutes.value.includes(" ") || userSeconds.value.includes(" ")
+  || userInput.value === "" || userMinutes.value === ""
+  || currentActivity.category === undefined || userSeconds.value.length > 2
+  || userSeconds.value === "") {
     startButton.disabled = true;
   } else {
     startButton.disabled = false;
@@ -44,10 +46,26 @@ function toggleDisabled() {
   // need to establish currentActivity.category to enable start button
 }
 
+
+function formatMinutes() {
+  if(userMinutes.value.length >= 2) {
+    currentActivity.minutes = userMinutes.value;
+  } else if(userMinutes.value.length === 1) {
+    currentActivity.minutes = 0 + userMinutes.value;
+  }
+}
+function formatSeconds() {
+  if(userSeconds.value.length === 2) {
+    currentActivity.seconds = userSeconds.value;
+  } else if(userSeconds.value.length === 1) {
+    currentActivity.seconds = 0 + userSeconds.value;
+  }
+}
+
 function storeUserInput() {
   currentActivity.description = userInput.value;
-  currentActivity.minutes = userMinutes.value;
-  currentActivity.seconds = userSeconds.value;
+  formatMinutes();
+  formatSeconds();
 }
 
 function displayTimerPage() {
@@ -56,7 +74,7 @@ function displayTimerPage() {
   activitySection.insertAdjacentHTML("afterbegin", `
   <div class="activity-title">Current Activity</div>
   <section class="body-timer">
-  <section class="time-page">${currentActivity.description}
+  <section class="time-page" id=${currentActivity.id}>${currentActivity.description}
     <div class="countdown-timer">${currentActivity.minutes}:${currentActivity.seconds}
     </div>
     <div class="start-timer">START</div>

@@ -24,7 +24,12 @@ var currentActivity = new Activity();
 studyActivity.addEventListener("click", changeStudyColor);
 meditateActivity.addEventListener("click", changeMeditateColor);
 exerciseActivity.addEventListener("click", changeExerciseColor);
+userInput.addEventListener("keyup", toggleDisabled);
+userMinutes.addEventListener("keyup", toggleDisabled);
+userSeconds.addEventListener("keyup", toggleDisabled);
+startButton.addEventListener("click", displayTimerPage)
 
+//--------------FUNCTIONS--------------:
 
 
 function resetStudyIcon() {

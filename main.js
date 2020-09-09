@@ -11,15 +11,19 @@ var activeMeditateIcon = document.querySelector(".meditate-icon-active");
 var exerciseIcon = document.querySelector(".exercise-icon");
 var activeExerciseIcon = document.querySelector(".exercise-icon-active");
 
-currentActivity = new Activity();
+var startButton = document.querySelector(".start-button");
+var activitySection = document.querySelector(".activity-section");
+var userMinutes = document.querySelector(".minutes");
+var userSeconds = document.querySelector(".seconds");
+var userInput = document.querySelector(".input");
+var startTimer = document.querySelector(".start-timer");
+
 
 //--------------EVENT LISTENERS--------------:
 studyActivity.addEventListener("click", changeStudyColor);
 meditateActivity.addEventListener("click", changeMeditateColor);
 exerciseActivity.addEventListener("click", changeExerciseColor);
 
-
-//--------------FUNCTIONS--------------:
 
 
 function resetStudyIcon() {

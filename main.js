@@ -50,6 +50,21 @@ function storeUserInput() {
   currentActivity.seconds = userSeconds.value;
 }
 
+function displayTimerPage() {
+  activitySection.innerText = "";
+  storeUserInput();
+  activitySection.insertAdjacentHTML("afterbegin", `
+  <div class="activity-title">Current Activity</div>
+  <section class="body-timer">
+  <section class="time-page">${currentActivity.description}
+    <div class="countdown-timer">${currentActivity.minutes}:${currentActivity.seconds}
+    </div>
+    <div class="start-timer">START</div>
+  </section>
+  </section>
+  `)
+  //change the color of the start-timer border to = the currentActivity.category color.
+}
 
 
 function resetStudyIcon() {

@@ -44,6 +44,13 @@ function toggleDisabled() {
   // need to establish currentActivity.category to enable start button
 }
 
+function storeUserInput() {
+  currentActivity.description = userInput.value;
+  currentActivity.minutes = userMinutes.value;
+  currentActivity.seconds = userSeconds.value;
+}
+
+
 
 function resetStudyIcon() {
   studyActivity.setAttribute("id", "");

@@ -1,1 +1,57 @@
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Intention Timer</title>
+  </head>
+  <body>
+    <header>
+      <h1>INTENTION TIMER</h1>
+    </header>
+    <main>
+      <section class="new-activity-section">
+        <div class="new-activity-title">
+          New Activity
+        </div>
+        <section class="body">
+          <div class="categories">Select a category:
+            <div class="category-names">
+              <button type="button" class="category-button study"><img src="assets/study.svg">Study</button>
+              <button type="button" class="category-button meditate"><img src="assets/meditate.svg">Meditate</button>
+              <button type="button" class="category-button exercise"><img src="assets/exercise.svg">Exercise</button>
+            </div>
+            <form>
+              <label for="user-input">What would you like to accomplish during this time?</label><br>
+              <input type="text" name="user-input" value=""><br>
+              <section class="user-time">
+                <section class="user-minutes">
+                  <label for="user-minutes">Minutes</label>
+                  <input type="text" name="user-minutes" value="">
+                  </section>
+                  <section class="user-seconds">
+                    <label for="user-seconds">Seconds</label>
+                    <input type="text" name="user-seconds" value="">
+                </section>
+              </section>
+            </form>
+            <div class="start-section">
+              <button class="start-button">START ACTIVITY</button>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="past-activities-section">
+        <div class="past-activities-title">
+          Past Activities
+        </div>
+        <div class="logged-activities">
+          You haven't logged any activities yet.<br> Complete the form to the left to get started!
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="activity.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

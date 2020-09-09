@@ -18,9 +18,21 @@
         <section class="body">
           <div class="categories">Select a category:
             <div class="category-names">
-              <button type="button" class="category-button study"><img src="assets/study.svg">Study</button>
-              <button type="button" class="category-button meditate"><img src="assets/meditate.svg">Meditate</button>
-              <button type="button" class="category-button exercise"><img src="assets/exercise.svg">Exercise</button>
+              <div class="category-button study" id="">
+                <img class="study-icon" src="assets/study.svg">
+                <img class="study-icon-active hidden" src="assets/study-active.svg">
+                Study
+              </div>
+              <div class="category-button meditate" id="">
+                <img class="meditate-icon" src="assets/meditate.svg">
+                <img class="meditate-icon-active hidden" src="assets/meditate-active.svg">
+                Meditate
+              </div>
+              <div class="category-button exercise" id="">
+                <img class="exercise-icon" src="assets/exercise.svg">
+                <img class="exercise-icon-active hidden" src="assets/exercise-active.svg">
+                Exercise
+              </div>
             </div>
             <form>
               <label for="user-input">What would you like to accomplish during this time?</label><br>

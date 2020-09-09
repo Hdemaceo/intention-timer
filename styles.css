@@ -16,6 +16,9 @@ indent logged-activities.
   border: solid #FFF
 } */
 
+.hidden {
+  display: none;
+}
 body {
   background: #2B2733;
   font-family: "Montserrat", sans-serif;
@@ -31,12 +34,14 @@ main {
   flex-direction: row;
   height: 100vh;
 }
+
+
+
 /* LEFT SECTION: */
 .new-activity-section {
   display: flex;
   flex: auto;
   flex-direction: column;
-  /* justify-content: space-between; */
   padding: 30px;
   border-right: solid 1px #FFF;
 }
@@ -58,10 +63,38 @@ main {
   display: flex;
   justify-content: space-between;
 }
+
+#green {
+  border: solid 2px #B3FD78;
+  color: #B3FD78;
+}
+#purple {
+  border: solid 2px #C278FD;
+  color: #C278FD;
+}
+#orange {
+  border: solid 2px #FD8078;
+  color: #FD8078;
+}
+
 .category-button {
   color: #FFF;
   background: #46424D;
   border: solid 2px #FFF;
+  border-radius: 4px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: .9em;
+  flex-direction: column;
+  padding: 40px;
+  margin-top: 25px;
+}
+
+/* .category-button-active .hidden {
+  background: #46424D;
   border-radius: 4px;
   width: 180px;
   height: 80px;
@@ -72,7 +105,9 @@ main {
   flex-direction: column;
   padding: 40px;
   margin-top: 25px;
-}
+} */
+
+
 img {
   width: 25px;
 }
@@ -83,7 +118,6 @@ form {
   padding-bottom: 60px;
   justify-content: space-around;
 }
-
 input {
   background: #46424D;
   border: none;
@@ -91,10 +125,6 @@ input {
   color: #FFF;
   height: 50px;
 }
-
-/* .user-input {
-
-} */
 .user-time {
   display: flex;
   flex-direction: row;

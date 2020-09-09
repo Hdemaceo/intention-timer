@@ -29,3 +29,13 @@ function changeMeditationColor() {
   document.querySelector(".meditate-icon").classList.toggle("hidden");
   document.querySelector(".meditate-icon-active").classList.toggle("hidden");
 }
+
+function changeExerciseColor() {
+  if(exerciseButton.id === ""){
+    exerciseButton.setAttribute("id", "orange");
+  } else {
+    exerciseButton.setAttribute("id", "");
+  }
+  document.querySelector(".exercise-icon").classList.toggle("hidden");
+  document.querySelector(".exercise-icon-active").classList.toggle("hidden");
+}

@@ -31,6 +31,19 @@ startButton.addEventListener("click", displayTimerPage)
 
 //--------------FUNCTIONS--------------:
 
+function toggleDisabled() {
+  if(isNaN(userMinutes.value) || isNaN(userSeconds.value)) {
+    startButton.disabled = true;
+  } else if(userMinutes.value.includes(" ") || userSeconds.value.includes(" ")) {
+    startButton.disabled = true;
+  } else if(userInput.value === "" || userMinutes.value === ""){
+    startButton.disabled = true;
+  } else {
+    startButton.disabled = false;
+  }
+  // need to establish currentActivity.category to enable start button
+}
+
 
 function resetStudyIcon() {
   studyActivity.setAttribute("id", "");

@@ -18,6 +18,7 @@ var userSeconds = document.querySelector(".seconds");
 var userInput = document.querySelector(".input");
 var startTimer = document.querySelector(".start-timer");
 
+var currentActivity = new Activity();
 
 //--------------EVENT LISTENERS--------------:
 studyActivity.addEventListener("click", changeStudyColor);

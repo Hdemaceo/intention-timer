@@ -11,24 +11,24 @@
       <h1>INTENTION TIMER</h1>
     </header>
     <main>
-      <section class="new-activity-section">
-        <div class="new-activity-title">
+      <section class="activity-section">
+        <div class="activity-title">
           New Activity
         </div>
         <section class="body">
           <div class="categories">Select a category:
             <div class="category-names">
-              <div class="category-button study" id="">
+              <div class="category study" id="">
                 <img class="study-icon" src="assets/study.svg">
                 <img class="study-icon-active hidden" src="assets/study-active.svg">
                 Study
               </div>
-              <div class="category-button meditate" id="">
+              <div class="category meditate" id="">
                 <img class="meditate-icon" src="assets/meditate.svg">
                 <img class="meditate-icon-active hidden" src="assets/meditate-active.svg">
                 Meditate
               </div>
-              <div class="category-button exercise" id="">
+              <div class="category exercise" id="">
                 <img class="exercise-icon" src="assets/exercise.svg">
                 <img class="exercise-icon-active hidden" src="assets/exercise-active.svg">
                 Exercise
@@ -36,20 +36,32 @@
             </div>
             <form>
               <label for="user-input">What would you like to accomplish during this time?</label><br>
-              <input type="text" name="user-input" value=""><br>
+              <input class="input" type="text" name="user-input" value=""><br>
               <section class="user-time">
                 <section class="user-minutes">
                   <label for="user-minutes">Minutes</label>
-                  <input type="text" name="user-minutes" value="">
+                  <input class="minutes" type="text" name="user-minutes" list="user-minutes" value="">
+                    <datalist id="user-minutes">
+                      <option value="0">
+                      <option value="01">
+                      <option value="02">
+                      <option value="03">
+                    </datalist>
                   </section>
                   <section class="user-seconds">
                     <label for="user-seconds">Seconds</label>
-                    <input type="text" name="user-seconds" value="">
+                    <input type="text" class="seconds" name="user-seconds" list="user-seconds" value="">
+                    <datalist id="user-seconds">
+                      <option value="00">
+                      <option value="01">
+                      <option value="02">
+                      <option value="03">
+                    </datalist>
                 </section>
               </section>
             </form>
             <div class="start-section">
-              <button class="start-button">START ACTIVITY</button>
+              <button class="start-button" disabled>START ACTIVITY</button>
             </div>
           </div>
         </section>

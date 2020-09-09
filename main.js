@@ -1,67 +1,77 @@
-//QUERY SELECTORS:
-var studyButton = document.querySelector(".study");
-var meditationButton = document.querySelector(".meditate");
-var exerciseButton = document.querySelector(".exercise");
+
+//--------------QUERY SELECTORS--------------:
+var studyActivity = document.querySelector(".study");
+var meditateActivity = document.querySelector(".meditate");
+var exerciseActivity = document.querySelector(".exercise");
+
+var studyIcon = document.querySelector(".study-icon");
+var activeStudyIcon = document.querySelector(".study-icon-active");
+var meditateIcon = document.querySelector(".meditate-icon");
+var activeMeditateIcon = document.querySelector(".meditate-icon-active");
+var exerciseIcon = document.querySelector(".exercise-icon");
+var activeExerciseIcon = document.querySelector(".exercise-icon-active");
+
+currentActivity = new Activity();
+
+//--------------EVENT LISTENERS--------------:
+studyActivity.addEventListener("click", changeStudyColor);
+meditateActivity.addEventListener("click", changeMeditateColor);
+exerciseActivity.addEventListener("click", changeExerciseColor);
 
 
-//EVENT LISTENERS:
-studyButton.addEventListener("click", changeStudyColor);
-meditationButton.addEventListener("click", changeMeditationColor);
-exerciseButton.addEventListener("click", changeExerciseColor);
+//--------------FUNCTIONS--------------:
 
-//FUNCTIONS:
-function toggleStudyIcon() {
-  document.querySelector(".study-icon").classList.remove("hidden");
-  document.querySelector(".study-icon-active").classList.add("hidden");
+
+function resetStudyIcon() {
+  studyActivity.setAttribute("id", "");
+  studyIcon.classList.remove("hidden");
+  activeStudyIcon.classList.add("hidden");
 }
-function toggleMeditationIcon() {
-  document.querySelector(".meditate-icon").classList.remove("hidden");
-  document.querySelector(".meditate-icon-active").classList.add("hidden");
+function resetMeditateIcon() {
+  meditateActivity.setAttribute("id", "");
+  meditateIcon.classList.remove("hidden");
+  activeMeditateIcon.classList.add("hidden");
+}
+function resetExerciseIcon() {
+  exerciseActivity.setAttribute("id", "");
+  exerciseIcon.classList.remove("hidden");
+  activeExerciseIcon.classList.add("hidden");
 }
 
-function toggleExerciseIcon() {
-  document.querySelector(".exercise-icon").classList.remove("hidden");
-  document.querySelector(".exercise-icon-active").classList.add("hidden");
+function activateStudyIcon(){
+  studyActivity.setAttribute("id", "green");
+  studyIcon.classList.add("hidden");
+  activeStudyIcon.classList.remove("hidden");
+}
+function activateMeditateIcon(){
+  meditateActivity.setAttribute("id", "purple");
+  meditateIcon.classList.add("hidden");
+  activeMeditateIcon.classList.remove("hidden");
+}
+function activateExerciseIcon(){
+  exerciseActivity.setAttribute("id", "orange");
+  exerciseIcon.classList.add("hidden");
+  activeExerciseIcon.classList.remove("hidden");
 }
 
-function resetColors() {
-  studyButton.setAttribute("id", "");
-  meditationButton.setAttribute("id", "");
-  exerciseButton.setAttribute("id", "");
-  toggleMeditationIcon();
-  toggleStudyIcon();
-  toggleExerciseIcon();
+function resetIcons() {
+  resetStudyIcon();
+  resetMeditateIcon();
+  resetExerciseIcon();
 }
 
 function changeStudyColor() {
-  resetColors();
-  if(studyButton.id === ""){
-    studyButton.setAttribute("id", "green");
-  } else {
-    studyButton.setAttribute("id", "");
-  };
-  document.querySelector(".study-icon").classList.toggle("hidden");
-  document.querySelector(".study-icon-active").classList.toggle("hidden");
+  resetIcons();
+  studyActivity.id === "" ? activateStudyIcon() : resetStudyIcon();
+  currentActivity.category = "Study";
 }
-
-function changeMeditationColor() {
-  resetColors();
-  if(meditationButton.id === ""){
-    meditationButton.setAttribute("id", "purple");
-  } else {
-    meditationButton.setAttribute("id", "");
-  };
-  document.querySelector(".meditate-icon").classList.toggle("hidden");
-  document.querySelector(".meditate-icon-active").classList.toggle("hidden");
+function changeMeditateColor() {
+  resetIcons();
+  meditateActivity.id === "" ? activateMeditateIcon() : resetMeditateIcon();
+  currentActivity.category = "Meditate";
 }
-
 function changeExerciseColor() {
-  resetColors();
-  if(exerciseButton.id === ""){
-    exerciseButton.setAttribute("id", "orange");
-  } else {
-    exerciseButton.setAttribute("id", "");
-  };
-  document.querySelector(".exercise-icon").classList.toggle("hidden");
-  document.querySelector(".exercise-icon-active").classList.toggle("hidden");
+  resetIcons();
+  exerciseActivity.id === "" ? activateExerciseIcon() : resetExerciseIcon();
+  currentActivity.category = "Exercise";
 }

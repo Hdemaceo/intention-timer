@@ -19,3 +19,13 @@ function changeStudyColor() {
   document.querySelector(".study-icon").classList.toggle("hidden");
   document.querySelector(".study-icon-active").classList.toggle("hidden");
 }
+
+function changeMeditationColor() {
+  if(meditationButton.id === ""){
+    meditationButton.setAttribute("id", "purple");
+  } else {
+    meditationButton.setAttribute("id", "");
+  }
+  document.querySelector(".meditate-icon").classList.toggle("hidden");
+  document.querySelector(".meditate-icon-active").classList.toggle("hidden");
+}

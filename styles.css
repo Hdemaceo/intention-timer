@@ -7,7 +7,8 @@ Study: #B3FD78
 Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC */
-/* separate input lines between minutes and seconds
+
+/*
 indent logged-activities.
 */
 
@@ -30,16 +31,18 @@ main {
   flex-direction: row;
   height: 100vh;
 }
-/* LEFT SECTION: */
-.new-activity-section {
+
+
+
+/* --------------LEFT SECTION: NEW ACTIVITY-------------- */
+.activity-section {
   display: flex;
   flex: auto;
   flex-direction: column;
-  /* justify-content: space-between; */
   padding: 30px;
   border-right: solid 1px #FFF;
 }
-.new-activity-title {
+.activity-title {
   font-size: 2.0em;
   padding-bottom: 15px;
 }
@@ -57,13 +60,27 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.category-button {
+
+#green {
+  border: solid 2px #B3FD78;
+  color: #B3FD78;
+}
+#purple {
+  border: solid 2px #C278FD;
+  color: #C278FD;
+}
+#orange {
+  border: solid 2px #FD8078;
+  color: #FD8078;
+}
+
+.category {
   color: #FFF;
   background: #46424D;
   border: solid 2px #FFF;
   border-radius: 4px;
-  width: 180px;
-  height: 80px;
+  width: 150px;
+  height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -72,6 +89,7 @@ main {
   padding: 40px;
   margin-top: 25px;
 }
+
 img {
   width: 25px;
 }
@@ -82,7 +100,6 @@ form {
   padding-bottom: 60px;
   justify-content: space-around;
 }
-
 input {
   background: #46424D;
   border: none;
@@ -90,10 +107,10 @@ input {
   color: #FFF;
   height: 50px;
 }
-
-/* .user-input {
-
-} */
+a {
+  color: red;
+  font-size: .7em;
+}
 .user-time {
   display: flex;
   flex-direction: row;
@@ -131,7 +148,7 @@ input {
   padding: 10px;
 }
 
-/* RIGHT SECTION: */
+/* --------------RIGHT SECTION: MAIN-------------- */
 .past-activities-section {
   padding: 30px;
   display: flex;
@@ -146,4 +163,66 @@ input {
   justify-content: center;
   font-size: 1.5em;
   padding: 50px;
+}
+
+
+/* --------------LEFT SECTION: CURRENT ACTIVITY-------------- */
+.current-activity {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  padding: 30px;
+  border-right: solid 1px #FFF;
+}
+
+.current-activity-title {
+  font-size: 2.0em;
+  padding-bottom: 15px;
+}
+
+.body-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #46424D;
+  padding: 30px 20px;
+  height: 100vh;
+}
+
+.current-activity-display {
+  font-size: 2.0em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #46424D;
+}
+
+.countdown-timer {
+  /* display: flex; */
+  font-size: 3.5em;
+  font-weight:bolder;
+  /* flex-direction: column; */
+  padding: 30px 50px;
+}
+
+.start-timer {
+  color: #FFF;
+  background: #46424D;
+  border: solid 2px #FFF;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.0em;
+  flex-direction: column;
+  padding: 40px;
+  margin-top: 25px;
+}
+
+.hidden {
+  display: none;
 }

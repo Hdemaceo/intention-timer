@@ -11,36 +11,57 @@
       <h1>INTENTION TIMER</h1>
     </header>
     <main>
-      <section class="new-activity-section">
-        <div class="new-activity-title">
+      <section class="activity-section">
+        <div class="activity-title">
           New Activity
         </div>
         <section class="body">
           <div class="categories">Select a category:
             <div class="category-names">
-              <button type="button" class="category-button study"><img src="assets/study.svg">Study</button>
-              <button type="button" class="category-button meditate"><img src="assets/meditate.svg">Meditate</button>
-              <button type="button" class="category-button exercise"><img src="assets/exercise.svg">Exercise</button>
+              <div class="category study" id= "">
+                <img class="study-icon" src="assets/study.svg">
+                <img class="study-icon-active hidden" src="assets/study-active.svg">
+                Study
+              </div>
+              <div class="category meditate" id= "">
+                <img class="meditate-icon" src="assets/meditate.svg">
+                <img class="meditate-icon-active hidden" src="assets/meditate-active.svg">
+                Meditate
+              </div>
+              <div class="category exercise" id= "">
+                <img class="exercise-icon" src="assets/exercise.svg">
+                <img class="exercise-icon-active hidden" src="assets/exercise-active.svg">
+                Exercise
+              </div>
             </div>
             <form>
               <label for="user-input">What would you like to accomplish during this time?</label><br>
-              <input type="text" name="user-input" value=""><br>
-              <section class="user-time">
+              <input class="input" type="text" name="user-input" value=""><br>
+              <a class = "description-warning hidden"><img src="assets/warning.svg">  A description is required.</a>
+            <section class="user-time">
                 <section class="user-minutes">
                   <label for="user-minutes">Minutes</label>
-                  <input type="text" name="user-minutes" value="">
+                  <input class="minutes" type="text" name="user-minutes" list="user-minutes" value="">
                   </section>
+                  <a class = "minutes-warning hidden"><img src="assets/warning.svg">  A number is required.</a>
                   <section class="user-seconds">
                     <label for="user-seconds">Seconds</label>
-                    <input type="text" name="user-seconds" value="">
-                </section>
+                    <input type="text" class="seconds" name="user-seconds" list="user-seconds" value="">
+                  </section>
+                  <a class = "seconds-warning hidden"><img src="assets/warning.svg">  A number is required.</a>
               </section>
             </form>
             <div class="start-section">
-              <button class="start-button">START ACTIVITY</button>
+              <button class="start-button" disabled>START ACTIVITY</button>
             </div>
           </div>
         </section>
+      </section>
+      <section class="current-activity hidden">
+        <div class="current-activity-title">Current Activity</div>
+          <section class="body-timer">
+            <div class="start-timer" id="">START</div>
+          </section>
       </section>
       <section class="past-activities-section">
         <div class="past-activities-title">

@@ -1,5 +1,7 @@
 
 //rename activitySection to newActivitySection
+//rename warning function as user_____Warning
+//
 //--------------QUERY SELECTORS--------------:
 var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
@@ -24,6 +26,7 @@ var userMinutes = document.querySelector(".minutes");
 var userSeconds = document.querySelector(".seconds");
 var userInput = document.querySelector(".input");
 
+var categoryWarning = document.querySelector(".category-warning");
 var descriptionWarning = document.querySelector(".description-warning");
 var minutesWarning = document.querySelector(".minutes-warning");
 var secondsWarning = document.querySelector(".seconds-warning");
@@ -36,56 +39,33 @@ var currentActivity = new Activity();
 studyActivity.addEventListener("click", changeStudyColor);
 meditateActivity.addEventListener("click", changeMeditateColor);
 exerciseActivity.addEventListener("click", changeExerciseColor);
-categories.addEventListener("click", toggleDisabled);
-userInput.addEventListener("keyup", toggleDisabled);
-userMinutes.addEventListener("keyup", toggleDisabled);
-userSeconds.addEventListener("keyup", toggleDisabled);
-startButton.addEventListener("click", displayTimerPage)
 
+startButton.addEventListener("click", checkForInputs);
 
 //--------------SECTION FUNCTIONS--------------:
-function toggleDisabled() {
-  if(isNaN(userMinutes.value) || isNaN(userSeconds.value)
-  || userMinutes.value.includes(" ") || userSeconds.value.includes(" ")
-  || currentActivity.category === undefined || userMinutes.value === ""
-  || userSeconds.value.length > 2 || userSeconds.value === "") {
-    startButton.disabled = true;
-    toggleDescriptionWarning();
-  } else {
-    startButton.disabled = false;
-  }
+
+function checkForInputs() {
+    if (currentActivity.category === undefined) {
+        categoryWarning.classList.remove("hidden");
+    } else if (userInput.value === "") {
+        descriptionWarning.classList.remove("hidden");
+    } else if (userMinutes.value === "" 
+        || isNaN(userMinutes.value) 
+        || userMinutes.value.includes(" ")
+        || userMinutes.value < 0
+        || userMinutes.value.charAt(0) === "-") {
+        minutesWarning.classList.remove("hidden"); 
+    } else if (userSeconds.value === "" 
+        || isNaN(userSeconds.value) 
+        || userSeconds.value.includes(" ")
+        || userSeconds.value.length > 2
+        || userSeconds.value >= 60
+        || userSeconds.value.charAt(0) === "-") {
+        secondsWarning.classList.remove("hidden");
+    } else {
+        displayTimerPage();
+    }
 }
-
-function toggleDescriptionWarning(){
-  if(userInput.value === "") {
-    startButton.disabled = true;
-    descriptionWarning.classList.remove("hidden");
-    return;
-  } else {
-    descriptionWarning.classList.add("hidden");
-  }
-  toggleMinuteWarning();
-}
-
-function toggleMinuteWarning(){
-  if(userMinutes.value === "") {
-    minutesWarning.classList.remove("hidden")
-    return;
-  } else {
-    minutesWarning.classList.add("hidden");
-  }
-  toggleSecondsWarning()
-}
-
-function toggleSecondsWarning(){
-  if(userSeconds.value === "") {
-    secondsWarning.classList.remove("hidden")
-  } else {
-    secondsWarning.classList.add("hidden")
-  }
-}
-
-
 
 function formatMinutes() {
   if(userMinutes.value.length >= 2) {
@@ -94,6 +74,7 @@ function formatMinutes() {
     currentActivity.minutes = 0 + userMinutes.value;
   }
 }
+
 function formatSeconds() {
   if(userSeconds.value.length === 2) {
     currentActivity.seconds = userSeconds.value;
@@ -112,10 +93,6 @@ function displayTimerPage() {
   storeUserInput();
   activitySection.classList.add("hidden");
   currentActivityPage.classList.remove("hidden");
-  // currentDisplay.setAttribute("id", "currentActivity.id");
-  // countdownTimer.innerText = currentActivity.minutes + ":" + currentActivity.seconds;
-  // currentDisplay.innerText = currentActivity.description;
-  // changeStartTimerColor();
   bodyTimer.insertAdjacentHTML("afterbegin", `
   <section class="current-activity-display" id=${currentActivity.id}>
   ${currentActivity.description}
@@ -142,11 +119,13 @@ function resetStudyIcon() {
   studyIcon.classList.remove("hidden");
   activeStudyIcon.classList.add("hidden");
 }
+
 function resetMeditateIcon() {
   meditateActivity.setAttribute("id", "");
   meditateIcon.classList.remove("hidden");
   activeMeditateIcon.classList.add("hidden");
 }
+
 function resetExerciseIcon() {
   exerciseActivity.setAttribute("id", "");
   exerciseIcon.classList.remove("hidden");
@@ -158,11 +137,13 @@ function activateStudyIcon(){
   studyIcon.classList.add("hidden");
   activeStudyIcon.classList.remove("hidden");
 }
+
 function activateMeditateIcon(){
   meditateActivity.setAttribute("id", "purple");
   meditateIcon.classList.add("hidden");
   activeMeditateIcon.classList.remove("hidden");
 }
+
 function activateExerciseIcon(){
   exerciseActivity.setAttribute("id", "orange");
   exerciseIcon.classList.add("hidden");
@@ -180,13 +161,16 @@ function changeStudyColor() {
   studyActivity.id === "" ? activateStudyIcon() : resetStudyIcon();
   currentActivity.category = "Study";
 }
+
 function changeMeditateColor() {
   resetIcons();
   meditateActivity.id === "" ? activateMeditateIcon() : resetMeditateIcon();
   currentActivity.category = "Meditate";
 }
+
 function changeExerciseColor() {
   resetIcons();
   exerciseActivity.id === "" ? activateExerciseIcon() : resetExerciseIcon();
   currentActivity.category = "Exercise";
 }
+

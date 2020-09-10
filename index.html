@@ -33,26 +33,27 @@
                 <img class="exercise-icon-active hidden" src="assets/exercise-active.svg">
                 Exercise
               </div>
-            </div>
+            </div> 
+            <p class="category-warning hidden"><img src="assets/warning.svg"> A category is required.</p>
             <form>
               <label for="user-input">What would you like to accomplish during this time?</label><br>
               <input class="input" type="text" name="user-input" value=""><br>
-              <a class = "description-warning hidden"><img src="assets/warning.svg">  A description is required.</a>
+              <p class="description-warning hidden"><img src="assets/warning.svg">  A description is required.</p>
             <section class="user-time">
                 <section class="user-minutes">
                   <label for="user-minutes">Minutes</label>
-                  <input class="minutes" type="text" name="user-minutes" list="user-minutes" value="">
+                  <input class="minutes" type="text" name="user-minutes" value="">
                   </section>
-                  <a class = "minutes-warning hidden"><img src="assets/warning.svg">  A number is required.</a>
+                  <p class="minutes-warning hidden"><img src="assets/warning.svg">  A number is required.</p>
                   <section class="user-seconds">
                     <label for="user-seconds">Seconds</label>
-                    <input type="text" class="seconds" name="user-seconds" list="user-seconds" value="">
+                    <input type="text" class="seconds" name="user-seconds" value="">
                   </section>
-                  <a class = "seconds-warning hidden"><img src="assets/warning.svg">  A number is required.</a>
+                  <p class="seconds-warning hidden"><img src="assets/warning.svg">  A number between 0 and 59 is required.</p>
               </section>
             </form>
             <div class="start-section">
-              <button class="start-button" disabled>START ACTIVITY</button>
+              <button class="start-button">START ACTIVITY</button>
             </div>
           </div>
         </section>

@@ -56,6 +56,35 @@ function toggleDisabled() {
   }
 }
 
+function toggleDescriptionWarning(){
+  if(userInput.value === "") {
+    startButton.disabled = true;
+    descriptionWarning.classList.remove("hidden");
+    return;
+  } else {
+    descriptionWarning.classList.add("hidden");
+  }
+  toggleMinuteWarning();
+}
+
+function toggleMinuteWarning(){
+  if(userMinutes.value === "") {
+    minutesWarning.classList.remove("hidden")
+    return;
+  } else {
+    minutesWarning.classList.add("hidden");
+  }
+  toggleSecondsWarning()
+}
+
+function toggleSecondsWarning(){
+  if(userSeconds.value === "") {
+    secondsWarning.classList.remove("hidden")
+  } else {
+    secondsWarning.classList.add("hidden")
+  }
+}
+
 
 
 function formatMinutes() {

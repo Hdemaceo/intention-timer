@@ -16,9 +16,6 @@ indent logged-activities.
   border: solid #FFF
 } */
 
-.hidden {
-  display: none;
-}
 body {
   background: #2B2733;
   font-family: "Montserrat", sans-serif;
@@ -37,7 +34,7 @@ main {
 
 
 
-/* --------------LEFT SECTION: MAIN-------------- */
+/* --------------LEFT SECTION: NEW ACTIVITY-------------- */
 .activity-section {
   display: flex;
   flex: auto;
@@ -110,6 +107,10 @@ input {
   color: #FFF;
   height: 50px;
 }
+a {
+  color: red;
+  font-size: .7em;
+}
 .user-time {
   display: flex;
   flex-direction: row;
@@ -165,15 +166,31 @@ input {
 }
 
 
-/* --------------LEFT SECTION: TIMER-------------- */
-.body-timer {
-  background: #46424D;
-  padding: 30px 100px;
-  height: 100vh;
-  /* font-family: "Montserrat", sans-serif; */
+/* --------------LEFT SECTION: CURRENT ACTIVITY-------------- */
+.current-activity {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  padding: 30px;
+  border-right: solid 1px #FFF;
 }
 
-.time-page {
+.current-activity-title {
+  font-size: 2.0em;
+  padding-bottom: 15px;
+}
+
+.body-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #46424D;
+  padding: 30px 20px;
+  height: 100vh;
+}
+
+.current-activity-display {
   font-size: 2.0em;
   display: flex;
   flex-direction: column;
@@ -183,10 +200,10 @@ input {
 }
 
 .countdown-timer {
-  display: flex;
+  /* display: flex; */
   font-size: 3.5em;
   font-weight:bolder;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 30px 50px;
 }
 
@@ -198,10 +215,14 @@ input {
   width: 200px;
   height: 200px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  font-size: .9em;
+  font-size: 2.0em;
   flex-direction: column;
   padding: 40px;
   margin-top: 25px;
+}
+
+.hidden {
+  display: none;
 }

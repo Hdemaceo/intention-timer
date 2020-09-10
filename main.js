@@ -1,9 +1,15 @@
 
+//rename activitySection to newActivitySection
 //--------------QUERY SELECTORS--------------:
 var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
 var meditateActivity = document.querySelector(".meditate");
 var exerciseActivity = document.querySelector(".exercise");
+
+var currentActivityPage = document.querySelector(".current-activity");
+var currentDisplay = document.querySelector(".current-activity-display");
+var countdownTimer = document.querySelector(".countdown-timer");
+var bodyTimer = document.querySelector(".body-timer");
 
 var studyIcon = document.querySelector(".study-icon");
 var activeStudyIcon = document.querySelector(".study-icon-active");
@@ -17,6 +23,11 @@ var activitySection = document.querySelector(".activity-section");
 var userMinutes = document.querySelector(".minutes");
 var userSeconds = document.querySelector(".seconds");
 var userInput = document.querySelector(".input");
+
+var descriptionWarning = document.querySelector(".description-warning");
+var minutesWarning = document.querySelector(".minutes-warning");
+var secondsWarning = document.querySelector(".seconds-warning");
+
 var startTimer = document.querySelector(".start-timer");
 
 var currentActivity = new Activity();
@@ -31,20 +42,20 @@ userMinutes.addEventListener("keyup", toggleDisabled);
 userSeconds.addEventListener("keyup", toggleDisabled);
 startButton.addEventListener("click", displayTimerPage)
 
-//--------------FUNCTIONS--------------:
 
+//--------------SECTION FUNCTIONS--------------:
 function toggleDisabled() {
   if(isNaN(userMinutes.value) || isNaN(userSeconds.value)
   || userMinutes.value.includes(" ") || userSeconds.value.includes(" ")
-  || userInput.value === "" || userMinutes.value === ""
-  || currentActivity.category === undefined || userSeconds.value.length > 2
-  || userSeconds.value === "") {
+  || currentActivity.category === undefined || userMinutes.value === ""
+  || userSeconds.value.length > 2 || userSeconds.value === "") {
     startButton.disabled = true;
+    toggleDescriptionWarning();
   } else {
     startButton.disabled = false;
   }
-  // need to establish currentActivity.category to enable start button
 }
+
 
 
 function formatMinutes() {
@@ -69,21 +80,33 @@ function storeUserInput() {
 }
 
 function displayTimerPage() {
-  activitySection.innerText = "";
   storeUserInput();
-  activitySection.insertAdjacentHTML("afterbegin", `
-  <div class="activity-title">Current Activity</div>
-  <section class="body-timer">
-  <section class="time-page" id=${currentActivity.id}>${currentActivity.description}
-    <div class="countdown-timer">${currentActivity.minutes}:${currentActivity.seconds}
+  activitySection.classList.add("hidden");
+  currentActivityPage.classList.remove("hidden");
+  // currentDisplay.setAttribute("id", "currentActivity.id");
+  // countdownTimer.innerText = currentActivity.minutes + ":" + currentActivity.seconds;
+  // currentDisplay.innerText = currentActivity.description;
+  // changeStartTimerColor();
+  bodyTimer.insertAdjacentHTML("afterbegin", `
+  <section class="current-activity-display" id=${currentActivity.id}>
+  ${currentActivity.description}
+    <div class="countdown-timer">
+    ${currentActivity.minutes}:${currentActivity.seconds}
     </div>
-    <div class="start-timer">START</div>
-  </section>
-  </section>
-  `)
-  //change the color of the start-timer border to = the currentActivity.category color.
+  `);
+    changeStartTimerColor()
 }
 
+function changeStartTimerColor() {
+  if(currentActivity.category === "Study") {
+    startTimer.setAttribute("id", "green")
+  } else if(currentActivity.category === "Meditate") {
+    startTimer.setAttribute("id", "purple")
+  } else if(currentActivity.category === "Exercise") {
+    startTimer.setAttribute("id", "orange")
+  }
+  startTimer.style.color = "white";
+}
 
 function resetStudyIcon() {
   studyActivity.setAttribute("id", "");

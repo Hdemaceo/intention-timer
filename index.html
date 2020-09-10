@@ -38,18 +38,18 @@
             <form>
               <label for="user-input">What would you like to accomplish during this time?</label><br>
               <input class="input" type="text" name="user-input" value=""><br>
-              <p class="description-warning hidden"><img src="assets/warning.svg">  A description is required.</p>
+              <p class="description-warning warning hidden"><img src="assets/warning.svg">  A description is required.</p>
             <section class="user-time">
                 <section class="user-minutes">
                   <label for="user-minutes">Minutes</label>
                   <input class="minutes" type="text" name="user-minutes" value="">
                   </section>
-                  <p class="minutes-warning hidden"><img src="assets/warning.svg">  A number is required.</p>
+                  <p class="minutes-warning warning hidden"><img src="assets/warning.svg">  A number is required.</p>
                   <section class="user-seconds">
                     <label for="user-seconds">Seconds</label>
                     <input type="text" class="seconds" name="user-seconds" value="">
                   </section>
-                  <p class="seconds-warning hidden"><img src="assets/warning.svg">  A number between 0 and 59 is required.</p>
+                  <p class="seconds-warning warning hidden"><img src="assets/warning.svg">  A number between 0 and 59 is required.</p>
               </section>
             </form>
             <div class="start-section">
@@ -69,7 +69,7 @@
           Past Activities
         </div>
         <div class="logged-activities">
-          You haven't logged any activities yet.<br> Complete the form to the left to get started!
+          <p class="missing-activities-message">You haven't logged any activities yet.<br> Complete the form to the left to get started!</p>
         </div>
       </section>
     </main>

@@ -41,6 +41,9 @@ meditateActivity.addEventListener("click", changeMeditateColor);
 exerciseActivity.addEventListener("click", changeExerciseColor);
 
 startButton.addEventListener("click", checkForInputs);
+userInput.addEventListener("focus", hideErrorMessage);
+userMinutes.addEventListener("focus", hideErrorMessage);
+userSeconds.addEventListener("focus", hideErrorMessage);
 
 //--------------SECTION FUNCTIONS--------------:
 
@@ -66,6 +69,18 @@ function checkForInputs() {
         displayTimerPage();
     }
 }
+
+function hideErrorMessage(event) {
+    if (event.target.className === "input") {
+        descriptionWarning.classList.add("hidden");
+    } else if (event.target.className === "seconds") {
+        secondsWarning.classList.add("hidden");
+    } else if (event.target.className === "minutes") {
+        minutesWarning.classList.add("hidden");
+    } else if (event.target.className === "category") {
+        categoryWarning.classList.add("hidden");
+    }
+ } 
 
 function formatMinutes() {
   if(userMinutes.value.length >= 2) {

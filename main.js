@@ -44,6 +44,7 @@ startButton.addEventListener("click", checkForInputs);
 userInput.addEventListener("focus", hideErrorMessage);
 userMinutes.addEventListener("focus", hideErrorMessage);
 userSeconds.addEventListener("focus", hideErrorMessage);
+categories.addEventListener("click", hideErrorMessage);
 
 //--------------SECTION FUNCTIONS--------------:
 
@@ -71,15 +72,15 @@ function checkForInputs() {
 }
 
 function hideErrorMessage(event) {
-    if (event.target.className === "input") {
+    if (event.target.classList.contains("category")) {
+        categoryWarning.classList.add("hidden");
+    } else if (event.target.className === "input") {
         descriptionWarning.classList.add("hidden");
     } else if (event.target.className === "seconds") {
         secondsWarning.classList.add("hidden");
     } else if (event.target.className === "minutes") {
         minutesWarning.classList.add("hidden");
-    } else if (event.target.className === "category") {
-        categoryWarning.classList.add("hidden");
-    }
+    } 
  } 
 
 function formatMinutes() {

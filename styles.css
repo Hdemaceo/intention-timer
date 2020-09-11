@@ -21,18 +21,18 @@ body {
   font-family: "Montserrat", sans-serif;
   color: #FFF;
 }
+
 header {
   background: #46424D;
   display: flex;
   justify-content: center;
 }
+
 main {
   display: flex;
   flex-direction: row;
   height: 100vh;
 }
-
-
 
 /* --------------LEFT SECTION: NEW ACTIVITY-------------- */
 .activity-section {
@@ -42,20 +42,24 @@ main {
   padding: 30px;
   border-right: solid 1px #FFF;
 }
+
 .activity-title {
   font-size: 2.0em;
   padding-bottom: 15px;
 }
+
 .body {
   background: #46424D;
   padding: 30px 100px;
 }
+
 .categories {
   display: flex;
   font-size: 1.5em;
   flex-direction: column;
   padding: 30px 50px;
 }
+
 .category-names {
   display: flex;
   justify-content: space-between;
@@ -65,10 +69,12 @@ main {
   border: solid 4px #B3FD78;
   color: #B3FD78;
 }
+
 #purple {
   border: solid 4px #C278FD;
   color: #C278FD;
 }
+
 #orange {
   border: solid 4px #FD8078;
   color: #FD8078;
@@ -93,6 +99,7 @@ main {
 img {
   width: 25px;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -100,6 +107,7 @@ form {
   padding-bottom: 60px;
   justify-content: space-around;
 }
+
 input {
   background: #46424D;
   border: none;
@@ -107,32 +115,44 @@ input {
   color: #FFF;
   height: 50px;
 }
+
 .warning {
   color: #EFB7EC;
   font-size: .7em;
 }
+
 .user-time {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
+
+.time-warnings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .user-minutes {
   display: flex;
   width: 40%;
   flex-direction: column;
 }
+
 .user-seconds {
   display: flex;
   width: 40%;
   flex-direction: column;
 }
+
 .start-section {
   display: flex;
   flex-direction: row-reverse;
   padding-bottom: 40px;
 }
+
 .start-button {
   color: #46424D;
   background: #FFF;
@@ -154,18 +174,19 @@ input {
   display: flex;
   flex-direction: column;
 }
+
 .past-activities-title {
   /* display: flex; */
   justify-content: flex-start;
   font-size: 2.0em;
 }
+
 .logged-activities {
   justify-content: center;
   font-size: 1.5em;
   padding: 50px;
   text-align: center;
 }
-
 
 /* --------------LEFT SECTION: CURRENT ACTIVITY-------------- */
 .current-activity {

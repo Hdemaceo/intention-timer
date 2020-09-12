@@ -9,25 +9,24 @@ class Activity {
   }
 
   countdown() {
-    if (this.minutes == 0 && this.seconds == 0) {
-      alert("Time is up! Your activity has been completed!")
-      return
-    } else if (this.seconds >= 0) {
+    if (this.seconds >= 0) {
       this.seconds -= 1;
         if (this.seconds < 10 && this.seconds >= 0) {
             this.seconds = "0" + this.seconds;
-        } 
-        if (this.seconds < 0) {
+        } else if (this.seconds < 0) {
           this.seconds = 59;
           this.minutes -= 1;
+          if (this.minutes < 10) {
+            this.minutes = "0" + this.minutes;
+          }
         }
-      }
     }
+  }
 
   markComplete() {
 
   }
   saveToStorage() {
-    
+
   }
 }

@@ -48,7 +48,7 @@ userMinutes.addEventListener("focus", hideErrorMessage);
 userSeconds.addEventListener("focus", hideErrorMessage);
 categories.addEventListener("click", hideErrorMessage);
 
-startTimer.addEventListener("click", setCountdownInterval);
+startTimer.addEventListener("click", startCountdown);
 
 //--------------SECTION FUNCTIONS--------------:
 
@@ -57,14 +57,14 @@ function checkForInputs() {
         categoryWarning.classList.remove("hidden");
     } else if (userInput.value === "") {
         descriptionWarning.classList.remove("hidden");
-    } else if (userMinutes.value === "" 
-        || isNaN(userMinutes.value) 
+    } else if (userMinutes.value === ""
+        || isNaN(userMinutes.value)
         || userMinutes.value.includes(" ")
         || userMinutes.value < 0
         || userMinutes.value.charAt(0) === "-") {
-        minutesWarning.classList.remove("hidden"); 
-    } else if (userSeconds.value === "" 
-        || isNaN(userSeconds.value) 
+        minutesWarning.classList.remove("hidden");
+    } else if (userSeconds.value === ""
+        || isNaN(userSeconds.value)
         || userSeconds.value.includes(" ")
         || userSeconds.value.length > 2
         || userSeconds.value >= 60
@@ -84,8 +84,8 @@ function hideErrorMessage(event) {
         secondsWarning.classList.add("hidden");
     } else if (event.target.className === "minutes") {
         minutesWarning.classList.add("hidden");
-    } 
- } 
+    }
+ }
 
 function formatMinutes() {
   if(userMinutes.value.length >= 2) {
@@ -113,15 +113,8 @@ function displayTimerPage() {
   storeUserInput();
   activitySection.classList.add("hidden");
   currentActivityPage.classList.remove("hidden");
-//   bodyTimer.insertAdjacentHTML("afterbegin", `
-//   <section class="current-activity-display" id=${currentActivity.id}>
-//   ${currentActivity.description}
-//     <div class="countdown-timer">
-//     ${currentActivity.minutes}:${currentActivity.seconds}
-//     </div>
-//   `);
-    insertActivityInfo();
-    changeStartTimerColor();
+  insertActivityInfo();
+  changeStartTimerColor();
 }
 
 function insertActivityInfo() {
@@ -130,19 +123,14 @@ function insertActivityInfo() {
     <div class="countdown-timer">
     ${currentActivity.minutes}:${currentActivity.seconds}
     </div>`
-    
-    
-    // bodyTimer.insertAdjacentHTML("afterbegin", `
-    // <section class="current-activity-display" id=${currentActivity.id}>
-    // ${currentActivity.description}
-    // <div class="countdown-timer">
-    // ${currentActivity.minutes}:${currentActivity.seconds}
-    // </div>`)
 }
 
 function countdownAndInsertActivityInfo() {
+  if (currentActivity.minutes > 0 || currentActivity.seconds > 0) {
     currentActivity.countdown();
     insertActivityInfo();
+    setTimeout(countdownAndInsertActivityInfo, 1000);
+  }
 }
 
 function changeStartTimerColor() {
@@ -216,8 +204,8 @@ function changeExerciseColor() {
   currentActivity.category = "Exercise";
 }
 
-function setCountdownInterval() {
-    var oneSecondId = setInterval(countdownAndInsertActivityInfo, 1000);
+function startCountdown() {
+  setTimeout(countdownAndInsertActivityInfo, 1000)
 }
 
 //go to HTML and create elements that will hold currentActivity data

@@ -1,7 +1,8 @@
 
 //rename activitySection to newActivitySection
 //rename warning function as user_____Warning
-//
+//maybe look into changing the div for the categories into buttons (maybe prevent blue outline default behavior)
+//look into clearing intervals (make a global variabl that holds onto that interval value)
 //--------------QUERY SELECTORS--------------:
 var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
@@ -33,6 +34,7 @@ var secondsWarning = document.querySelector(".seconds-warning");
 
 var startTimer = document.querySelector(".start-timer");
 
+
 var currentActivity = new Activity();
 
 //--------------EVENT LISTENERS--------------:
@@ -45,6 +47,8 @@ userInput.addEventListener("focus", hideErrorMessage);
 userMinutes.addEventListener("focus", hideErrorMessage);
 userSeconds.addEventListener("focus", hideErrorMessage);
 categories.addEventListener("click", hideErrorMessage);
+
+startTimer.addEventListener("click", setCountdownInterval);
 
 //--------------SECTION FUNCTIONS--------------:
 
@@ -109,14 +113,36 @@ function displayTimerPage() {
   storeUserInput();
   activitySection.classList.add("hidden");
   currentActivityPage.classList.remove("hidden");
-  bodyTimer.insertAdjacentHTML("afterbegin", `
-  <section class="current-activity-display" id=${currentActivity.id}>
-  ${currentActivity.description}
+//   bodyTimer.insertAdjacentHTML("afterbegin", `
+//   <section class="current-activity-display" id=${currentActivity.id}>
+//   ${currentActivity.description}
+//     <div class="countdown-timer">
+//     ${currentActivity.minutes}:${currentActivity.seconds}
+//     </div>
+//   `);
+    insertActivityInfo();
+    changeStartTimerColor();
+}
+
+function insertActivityInfo() {
+    currentDisplay.innerHTML = ''
+    currentDisplay.innerHTML = `${currentActivity.description}
     <div class="countdown-timer">
     ${currentActivity.minutes}:${currentActivity.seconds}
-    </div>
-  `);
-    changeStartTimerColor()
+    </div>`
+    
+    
+    // bodyTimer.insertAdjacentHTML("afterbegin", `
+    // <section class="current-activity-display" id=${currentActivity.id}>
+    // ${currentActivity.description}
+    // <div class="countdown-timer">
+    // ${currentActivity.minutes}:${currentActivity.seconds}
+    // </div>`)
+}
+
+function countdownAndInsertActivityInfo() {
+    currentActivity.countdown();
+    insertActivityInfo();
 }
 
 function changeStartTimerColor() {
@@ -190,3 +216,10 @@ function changeExerciseColor() {
   currentActivity.category = "Exercise";
 }
 
+function setCountdownInterval() {
+    var oneSecondId = setInterval(countdownAndInsertActivityInfo, 1000);
+}
+
+//go to HTML and create elements that will hold currentActivity data
+//use querySelector to grab those elements and bring them into our javascript
+//

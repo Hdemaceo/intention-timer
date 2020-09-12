@@ -1,7 +1,8 @@
 
 //rename activitySection to newActivitySection
 //rename warning function as user_____Warning
-//
+//maybe look into changing the div for the categories into buttons (maybe prevent blue outline default behavior)
+//look into clearing intervals (make a global variabl that holds onto that interval value)
 //--------------QUERY SELECTORS--------------:
 var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
@@ -33,6 +34,7 @@ var secondsWarning = document.querySelector(".seconds-warning");
 
 var startTimer = document.querySelector(".start-timer");
 
+
 var currentActivity = new Activity();
 
 //--------------EVENT LISTENERS--------------:
@@ -46,6 +48,8 @@ userMinutes.addEventListener("focus", hideErrorMessage);
 userSeconds.addEventListener("focus", hideErrorMessage);
 categories.addEventListener("click", hideErrorMessage);
 
+startTimer.addEventListener("click", startCountdown);
+
 //--------------SECTION FUNCTIONS--------------:
 
 function checkForInputs() {
@@ -53,14 +57,14 @@ function checkForInputs() {
         categoryWarning.classList.remove("hidden");
     } else if (userInput.value === "") {
         descriptionWarning.classList.remove("hidden");
-    } else if (userMinutes.value === "" 
-        || isNaN(userMinutes.value) 
+    } else if (userMinutes.value === ""
+        || isNaN(userMinutes.value)
         || userMinutes.value.includes(" ")
         || userMinutes.value < 0
         || userMinutes.value.charAt(0) === "-") {
-        minutesWarning.classList.remove("hidden"); 
-    } else if (userSeconds.value === "" 
-        || isNaN(userSeconds.value) 
+        minutesWarning.classList.remove("hidden");
+    } else if (userSeconds.value === ""
+        || isNaN(userSeconds.value)
         || userSeconds.value.includes(" ")
         || userSeconds.value.length > 2
         || userSeconds.value >= 60
@@ -80,8 +84,8 @@ function hideErrorMessage(event) {
         secondsWarning.classList.add("hidden");
     } else if (event.target.className === "minutes") {
         minutesWarning.classList.add("hidden");
-    } 
- } 
+    }
+ }
 
 function formatMinutes() {
   if(userMinutes.value.length >= 2) {
@@ -109,14 +113,24 @@ function displayTimerPage() {
   storeUserInput();
   activitySection.classList.add("hidden");
   currentActivityPage.classList.remove("hidden");
-  bodyTimer.insertAdjacentHTML("afterbegin", `
-  <section class="current-activity-display" id=${currentActivity.id}>
-  ${currentActivity.description}
+  insertActivityInfo();
+  changeStartTimerColor();
+}
+
+function insertActivityInfo() {
+    currentDisplay.innerHTML = ''
+    currentDisplay.innerHTML = `${currentActivity.description}
     <div class="countdown-timer">
     ${currentActivity.minutes}:${currentActivity.seconds}
-    </div>
-  `);
-    changeStartTimerColor()
+    </div>`
+}
+
+function countdownAndInsertActivityInfo() {
+  if (currentActivity.minutes > 0 || currentActivity.seconds > 0) {
+    currentActivity.countdown();
+    insertActivityInfo();
+    setTimeout(countdownAndInsertActivityInfo, 1000);
+  }
 }
 
 function changeStartTimerColor() {
@@ -190,3 +204,10 @@ function changeExerciseColor() {
   currentActivity.category = "Exercise";
 }
 
+function startCountdown() {
+  setTimeout(countdownAndInsertActivityInfo, 1000)
+}
+
+//go to HTML and create elements that will hold currentActivity data
+//use querySelector to grab those elements and bring them into our javascript
+//

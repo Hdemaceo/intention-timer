@@ -40,7 +40,7 @@ main {
   flex: auto;
   flex-direction: column;
   padding: 30px;
-  border-right: solid 1px #FFF;
+  border-right: solid 4px #46424D;
 }
 
 .new-activity-title {
@@ -154,12 +154,12 @@ input {
   padding-bottom: 40px;
 }
 
-.start-button {
+.start-activity-button {
   color: #46424D;
   background: #FFF;
   border: #FFF;
   border-radius: 5px;
-  width: 260px;
+  width: 270px;
   height: 55px;
   display: flex;
   justify-content: space-around;
@@ -169,11 +169,12 @@ input {
   padding: 10px;
 }
 
-/* --------------RIGHT SECTION: MAIN-------------- */
+/* --------------RIGHT SECTION: PAST ACTIVITIES-------------- */
 .past-activities-section {
   padding: 30px;
   display: flex;
   flex-direction: column;
+  width: 30vw;
 }
 
 .past-activities-title {
@@ -185,8 +186,45 @@ input {
 .logged-activities {
   justify-content: center;
   font-size: 1.5em;
-  padding: 50px;
+  /* padding: 50px; */
   text-align: center;
+}
+
+.no-activities-message {
+  color: #FFF;
+}
+
+.logged-activity {
+  color: #FFF;
+  font-family: "Montserrat", sans-serif;
+  background: #46424D;
+  /* border: #FFF;
+  border-radius: 5px; */
+  border-right: solid 2px #FFF;
+  width: auto;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.logged-category {
+  font-size: .6em;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+.logged-time {
+  font-size: .8em;
+  margin-left: 10px;
+}
+
+.logged-description {
+  padding-top: 5px;
+  font-size: .6em;
+  margin-left: 10px;
 }
 
 /* --------------LEFT SECTION: CURRENT ACTIVITY-------------- */
@@ -195,7 +233,7 @@ input {
   flex: auto;
   flex-direction: column;
   padding: 30px;
-  border-right: solid 1px #FFF;
+  border-right: solid 4px #46424D;
 }
 
 .current-activity-title {
@@ -210,7 +248,7 @@ input {
   justify-content: flex-start;
   background: #46424D;
   padding: 50px 20px;
-  height: 100vh;
+  height: 70vh;
 }
 
 .current-activity-display {
@@ -231,6 +269,7 @@ input {
   padding: 0px 50px;
 }
 
+/* if start timer is <div>
 .start-timer {
   color: #FFF;
   background: #46424D;
@@ -245,12 +284,61 @@ input {
   flex-direction: column;
   padding: 40px;
   margin-top: 70px;
+} */
+
+/* if start timer is <button> */
+.start-timer {
+  color: #FFF;
+  background: #46424D;
+  border: solid 10px #FFF;
+  border-radius: 100%;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  flex-direction: column;
+  margin-top: 90px;
 }
+
+.log-activity-button {
+  color: #46424D;
+  background: #FFF;
+  border: #FFF;
+  border-radius: 5px;
+  width: 350px;
+  height: 55px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.4em;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 60px;
+}
+
+/* --------------LEFT SECTION: COMPLETED ACTIVITY-------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .hidden {
   display: none;
 }
 
 p {
-  color:#FFF;
+  color: #FFF;
 }

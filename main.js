@@ -247,3 +247,15 @@ function displayLoggedActivities() {
   </section>
   `)
 }
+
+//might be able to use this function for all buttons
+//that hide/display a different activity section
+function toggleActivitySection() {
+  if(event.target.className === "log-activity-button"){
+    currentActivitySection.classList.add("hidden");
+    completedActivitySection.classList.remove("hidden");
+  } else if(event.target.className === "create-activity-button") {
+    completedActivitySection.classList.add("hidden");
+    newActivitySection.classList.remove("hidden");
+  }
+}

@@ -43,9 +43,10 @@ main {
   border-right: solid 4px #46424D;
 }
 
-.new-activity-title {
+.title {
   font-size: 2.0em;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
+  justify-content: flex-start;
 }
 
 .body {
@@ -177,11 +178,10 @@ input {
   width: 30vw;
 }
 
-.past-activities-title {
-  /* display: flex; */
+/* .past-activities-title {
   justify-content: flex-start;
   font-size: 2.0em;
-}
+} */
 
 .logged-activities {
   justify-content: center;
@@ -236,10 +236,10 @@ input {
   border-right: solid 4px #46424D;
 }
 
-.current-activity-title {
+/* .current-activity-title {
   font-size: 2.0em;
   padding-bottom: 15px;
-}
+} */
 
 .body-timer {
   display: flex;
@@ -320,8 +320,9 @@ input {
 
 /* --------------LEFT SECTION: COMPLETED ACTIVITY-------------- */
 
+/* .complete-activity-title {
 
-
+} */
 
 
 

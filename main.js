@@ -3,6 +3,9 @@
 //rename warning function as user_____Warning
 //maybe look into changing the div for the categories into buttons (maybe prevent blue outline default behavior)
 //look into clearing intervals (make a global variabl that holds onto that interval value)
+//disable start button once clicked.
+
+
 //--------------QUERY SELECTORS--------------:
 var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
@@ -22,7 +25,7 @@ var exerciseIcon = document.querySelector(".exercise-icon");
 var activeExerciseIcon = document.querySelector(".exercise-icon-active");
 
 var startButton = document.querySelector(".start-button");
-var activitySection = document.querySelector(".activity-section");
+var newActivitySection = document.querySelector(".new-activity-section");
 var userMinutes = document.querySelector(".minutes");
 var userSeconds = document.querySelector(".seconds");
 var userInput = document.querySelector(".input");
@@ -50,7 +53,7 @@ categories.addEventListener("click", hideErrorMessage);
 
 startTimer.addEventListener("click", startCountdown);
 
-//--------------SECTION FUNCTIONS--------------:
+//--------------FUNCTIONS for NEW ACTIVITY section--------------
 
 function checkForInputs() {
     if (currentActivity.category === undefined) {
@@ -75,7 +78,7 @@ function checkForInputs() {
     }
 }
 
-function hideErrorMessage(event) {
+function hideErrorMessage() {
     if (event.target.classList.contains("category")) {
         categoryWarning.classList.add("hidden");
     } else if (event.target.className === "input") {
@@ -111,7 +114,7 @@ function storeUserInput() {
 
 function displayTimerPage() {
   storeUserInput();
-  activitySection.classList.add("hidden");
+  newActivitySection.classList.add("hidden");
   currentActivityPage.classList.remove("hidden");
   insertActivityInfo();
   changeStartTimerColor();

@@ -1,9 +1,6 @@
-
 //maybe look into changing the div for the categories into buttons (maybe prevent blue outline default behavior)
 //look into clearing intervals (make a global variabl that holds onto that interval value)
 // the specified font family for the current activity page doesnt seem to be applied.
-
-
 //--------------QUERY SELECTORS--------------:
 var categories = document.querySelector(".category-names");
 var studyActivity = document.querySelector(".study");
@@ -37,7 +34,11 @@ var startTimer = document.querySelector(".start-timer");
 
 var logActivityButton = document.querySelector(".log-activity-button");
 var loggedActivities = document.querySelector(".logged-activities");
+var loggedCategory = document.querySelector(".logged-category");
+var loggedDescription = document.querySelector(".logged-description");
+var loggedTime = document.querySelector(".logged-time");
 var noActivitiesMessage = document.querySelector(".no-activities-message");
+
 var completedActivitySection = document.querySelector(".completed-activity");
 var completedActivityButton = document.querySelector(".completed-activity-button");
 var createActivityButton = document.querySelector(".create-activity-button");
@@ -219,9 +220,6 @@ function countdownAndInsertActivityInfo() { //could this function be renamed?
     currentActivity.countdown();
     insertActivityInfo();
     setTimeout(countdownAndInsertActivityInfo, 1000);
-    //changed the "startTimer" HTML element from div to button...
-    //in order to fix the repeated clicks = rapid countdown bug,
-    //but not sure if i like this solution (on line below).
     startTimer.disabled = true;
   } else {
     currentActivity.markComplete();
@@ -237,6 +235,7 @@ function startCountdown() {
 //use querySelector to grab those elements and bring them into our javascript
 
 
+
 //--------------FUNCTIONS for LOGGED ACTIVITIES--------------
 function displayLoggedActivities() {
   loggedActivities.insertAdjacentHTML("afterbegin", `
@@ -246,18 +245,37 @@ function displayLoggedActivities() {
     <div class="logged-description">${loggedActivity.description}</div>
   </section>
   `)
+  // assignLoggedActivityColor();
 }
 
-//might be able to use this function for all buttons
-//that hide/display a different activity section
+//might be able to add to this toggleAcitivitySection function and add it for...
+//some other buttons that hide/display a different activity section
 function toggleActivitySection() {
   if(event.target.className === "log-activity-button"){
     currentActivitySection.classList.add("hidden");
     completedActivitySection.classList.remove("hidden");
   } else if(event.target.className === "create-activity-button") {
+    resetActivitySections();
     completedActivitySection.classList.add("hidden");
     newActivitySection.classList.remove("hidden");
   }
+}
+
+function resetUserInputs() {
+  userInput.value = "";
+  userMinutes.value = "";
+  userSeconds.value = ""
+}
+function resetCurrentActivitySection() {
+  startTimer.innerText = "START";
+  logActivityButton.classList.add("hidden");
+  startTimer.disabled = false;
+}
+
+function resetActivitySections() {
+  resetIcons();
+  resetUserInputs();
+  resetCurrentActivitySection();
 }
 
 function logCurrentActivity() {

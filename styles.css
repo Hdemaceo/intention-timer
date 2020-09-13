@@ -200,29 +200,47 @@ input {
   background: #46424D;
   /* border: #FFF;
   border-radius: 5px; */
-  border-right: solid 2.5px;
   width: auto;
   height: 95px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   margin-top: 30px;
 }
 
 .logged-category {
-  font-size: .6em;
-  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: .7em;
+  /* font-weight: bold; */
+  border: solid 4px #FFF;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
+  width: 29vw;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .logged-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   font-size: .8em;
   margin-left: 10px;
+  width: 29vw;
+  border: solid 4px #FFF;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
 }
 
 .logged-description {
-  padding-top: 5px;
+  padding-top: 8px;
   font-size: .6em;
   margin-left: 10px;
 }
@@ -337,7 +355,6 @@ input {
   height: 70vh;
 }
 
-
 .create-activity-button {
  display: flex;
  justify-content: space-around;
@@ -354,15 +371,7 @@ input {
 
 
 
-
-
-
-
-
-
-
-
-
+/* --------------------------------------------------------------- */
 
 .hidden {
   display: none;

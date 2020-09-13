@@ -259,3 +259,12 @@ function toggleActivitySection() {
     newActivitySection.classList.remove("hidden");
   }
 }
+
+function logCurrentActivity() {
+  noActivitiesMessage.classList.add("hidden");
+  loggedActivity.id = currentActivity.id;
+  loggedActivity.category = currentActivity.category;
+  loggedActivity.complete = currentActivity.complete;
+  displayLoggedActivities();
+  toggleActivitySection();
+}

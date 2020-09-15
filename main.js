@@ -22,7 +22,7 @@ var exerciseIcon = document.querySelector(".exercise-icon");
 var activeExerciseIcon = document.querySelector(".exercise-icon-active");
 
 var startButton = document.querySelector(".start-button");
-var activitySection = document.querySelector(".activity-section");
+var newActivitySection = document.querySelector(".new-activity-section");
 var userMinutes = document.querySelector(".minutes");
 var userSeconds = document.querySelector(".seconds");
 var userInput = document.querySelector(".input");
@@ -50,7 +50,7 @@ categories.addEventListener("click", hideErrorMessage);
 
 startTimer.addEventListener("click", startCountdown);
 
-//--------------SECTION FUNCTIONS--------------:
+//--------------FUNCTIONS for NEW ACTIVITY section--------------
 
 function checkForInputs() {
     if (currentActivity.category === undefined) {
@@ -111,7 +111,7 @@ function storeUserInput() {
 
 function displayTimerPage() {
   storeUserInput();
-  activitySection.classList.add("hidden");
+  newActivitySection.classList.add("hidden");
   currentActivityPage.classList.remove("hidden");
   insertActivityInfo();
   changeStartTimerColor();

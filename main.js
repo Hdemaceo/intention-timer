@@ -63,6 +63,7 @@ categories.addEventListener("click", hideErrorMessage);
 startTimer.addEventListener("click", startCountdown);
 logActivityButton.addEventListener("click", logCurrentActivity);
 createActivityButton.addEventListener("click", toggleActivitySection);
+window.addEventListener("load", displayStoredActivities);
 
 //--------------FUNCTIONS for NEW ACTIVITY section--------------
 
@@ -238,15 +239,9 @@ function startCountdown() {
 }
 
 //--------------FUNCTIONS for LOGGED ACTIVITIES--------------
-// function saveToStorage() {
-//   var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
-//   if (!activitiesArray) {
-//     activitiesArray = [];
-//   }
-//
-//   activitiesArray.push(loggedActivity);
-//   localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
-// }
+function displayStoredActivities() {
+  for (var i = 0; i < )
+}
 
 function displayLoggedActivity() {
   loggedActivities.insertAdjacentHTML("afterbegin", `

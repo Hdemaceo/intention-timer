@@ -28,8 +28,12 @@ class Activity {
       this.complete = true;
     }
   }
-  
-  saveToStorage() {
 
+   saveToStorage() {
+    localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
+    // var retrievedObject = [];
+    // retrievedObject.unshift(localStorage.getItem("pastActivties"));
+    // var parsedObject = JSON.parse(retrievedObject[0]);
   }
 }
+

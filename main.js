@@ -237,20 +237,23 @@ function startCountdown() {
 }
 
 //--------------FUNCTIONS for LOGGED ACTIVITIES--------------
-function displayLoggedActivities() {
+function displayLoggedActivity() {
   loggedActivities.insertAdjacentHTML("afterbegin", `
   <section class="logged-activity" id=${loggedActivity.id}>
-    <div class="logged-category">${loggedActivity.category}</div>
-    <div class="logged-time"> ${loggedActivity.minutes} MIN  ${loggedActivity.seconds} SECONDS </div>
+    <div class="logged-category" id="${loggedActivity.category}">
+      ${loggedActivity.category}
+    </div>
+    <div class="logged-time" id="${loggedActivity.category}"> 
+      ${loggedActivity.minutes} MIN  ${loggedActivity.seconds} SECONDS
+    </div>
     <div class="logged-description">${loggedActivity.description}</div>
   </section>
   `)
-  // assignLoggedActivityColor();
 }
 
 //might be able to use this function for all buttons
 //that hide/display a different activity section
-function toggleActivitySection(event) {
+function toggleActivitySection() {
   if(event.target.className === "log-activity-button"){
     currentActivitySection.classList.add("hidden");
     completedActivitySection.classList.remove("hidden");
@@ -283,6 +286,10 @@ function logCurrentActivity() {
   loggedActivity.id = currentActivity.id;
   loggedActivity.category = currentActivity.category;
   loggedActivity.complete = currentActivity.complete;
-  displayLoggedActivities();
+  displayLoggedActivity();
   toggleActivitySection();
+}
+
+function displayPreviousActivities() {
+  pastActivities.unshift(localStorage.getItem("pastActivties"));
 }

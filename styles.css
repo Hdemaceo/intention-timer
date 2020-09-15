@@ -200,9 +200,9 @@ input {
   background: #46424D;
   /* border: #FFF;
   border-radius: 5px; */
-  border-right: solid 2px #FFF;
+  border-right: solid 2.5px;
   width: auto;
-  height: 75px;
+  height: 95px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -320,12 +320,37 @@ input {
 
 /* --------------LEFT SECTION: COMPLETED ACTIVITY-------------- */
 
-/* .complete-activity-title {
+.completed-activity {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  padding: 30px;
+  border-right: solid 4px #46424D;
+}
 
-} */
+.completed-activity-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #46424D;
+  padding: 50px 20px;
+  height: 70vh;
+}
 
-
-
+.create-activity-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #46424D;
+  background: #FFF;
+  border: #FFF;
+  border-radius: 5px;
+  width: 400px;
+  height: 50px;
+  font-size: 1.4em;
+  margin-top: 70px;
+ }
 
 
 

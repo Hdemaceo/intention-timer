@@ -11,8 +11,8 @@
       <h1>INTENTION TIMER</h1>
     </header>
     <main>
-      <section class="activity-section">
-        <div class="activity-title">
+      <section class="new-activity-section">
+        <div class="new-activity-title title">
           New Activity
         </div>
         <section class="body">
@@ -53,27 +53,40 @@
               </section>
             </form>
             <div class="start-section">
-              <button class="start-button">START ACTIVITY</button>
+              <button class="start-activity-button">START ACTIVITY</button>
             </div>
           </div>
         </section>
       </section>
       <section class="current-activity hidden">
-        <div class="current-activity-title">Current Activity</div>
+        <div class="current-activity-title title">Current Activity</div>
           <section class="body-timer">
             <section class="current-activity-display">
-
             </section>
-            <div class="start-timer" id="">START</div>
+            <div class="start-complete">
+              <button class="start-timer" id="">START</button>
+            </div>
+            <button class="log-activity-button hidden">LOG ACTIVITY</button>
           </section>
       </section>
+      <section class="completed-activity hidden">
+        <div class="completed-activity-title title">Completed Activity</div>
+        <section class="completed-activity-display">
+          <button class="create-activity-button">CREATE A NEW ACTIVITY</button>
+        </section>
+      </section>
       <section class="past-activities-section">
-        <div class="past-activities-title">
+        <div class="past-activities-title title">
           Past Activities
         </div>
-        <div class="logged-activities">
-          <p class="missing-activities-message">You haven't logged any activities yet.<br> Complete the form to the left to get started!</p>
-        </div>
+        <section class="logged-activities">
+          <p class="no-activities-message">You haven't logged any activities yet.<br> Complete the form to the left to get started!</p>
+                    <!-- <section class="logged-activity hidden">
+            <div class="logged-category"></div>
+            <div class="logged-time"></div>
+            <div class="logged-description"></div> -->
+          </section>
+        </section>
       </section>
     </main>
     <script type="text/javascript" src="activity.js"></script>

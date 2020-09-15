@@ -9,7 +9,7 @@ var studyActivity = document.querySelector(".study");
 var meditateActivity = document.querySelector(".meditate");
 var exerciseActivity = document.querySelector(".exercise");
 
-var currentActivityPage = document.querySelector(".current-activity");
+var currentActivitySection = document.querySelector(".current-activity");
 var currentDisplay = document.querySelector(".current-activity-display");
 var countdownTimer = document.querySelector(".countdown-timer");
 var bodyTimer = document.querySelector(".body-timer");
@@ -21,8 +21,8 @@ var activeMeditateIcon = document.querySelector(".meditate-icon-active");
 var exerciseIcon = document.querySelector(".exercise-icon");
 var activeExerciseIcon = document.querySelector(".exercise-icon-active");
 
-var startButton = document.querySelector(".start-button");
-var activitySection = document.querySelector(".activity-section");
+var startActivityButton = document.querySelector(".start-activity-button");
+var newActivitySection = document.querySelector(".new-activity-section");
 var userMinutes = document.querySelector(".minutes");
 var userSeconds = document.querySelector(".seconds");
 var userInput = document.querySelector(".input");
@@ -34,23 +34,36 @@ var secondsWarning = document.querySelector(".seconds-warning");
 
 var startTimer = document.querySelector(".start-timer");
 
+var logActivityButton = document.querySelector(".log-activity-button");
+var loggedActivities = document.querySelector(".logged-activities");
+var loggedCategory = document.querySelector(".logged-category");
+var loggedDescription = document.querySelector(".logged-description");
+var loggedTime = document.querySelector(".logged-time");
+var noActivitiesMessage = document.querySelector(".no-activities-message");
+
+var completedActivitySection = document.querySelector(".completed-activity");
+var completedActivityButton = document.querySelector(".completed-activity-button");
+var createActivityButton = document.querySelector(".create-activity-button");
 
 var currentActivity = new Activity();
+var loggedActivity = new Activity();
 
 //--------------EVENT LISTENERS--------------:
 studyActivity.addEventListener("click", changeStudyColor);
 meditateActivity.addEventListener("click", changeMeditateColor);
 exerciseActivity.addEventListener("click", changeExerciseColor);
 
-startButton.addEventListener("click", checkForInputs);
+startActivityButton.addEventListener("click", checkForInputs);
 userInput.addEventListener("focus", hideErrorMessage);
 userMinutes.addEventListener("focus", hideErrorMessage);
 userSeconds.addEventListener("focus", hideErrorMessage);
 categories.addEventListener("click", hideErrorMessage);
 
 startTimer.addEventListener("click", startCountdown);
+logActivityButton.addEventListener("click", logCurrentActivity);
+createActivityButton.addEventListener("click", toggleActivitySection);
 
-//--------------SECTION FUNCTIONS--------------:
+//--------------FUNCTIONS for NEW ACTIVITY section--------------
 
 function checkForInputs() {
     if (currentActivity.category === undefined) {
@@ -71,7 +84,7 @@ function checkForInputs() {
         || userSeconds.value.charAt(0) === "-") {
         secondsWarning.classList.remove("hidden");
     } else {
-        displayTimerPage();
+      displayCurrentActivity();
     }
 }
 
@@ -86,63 +99,6 @@ function hideErrorMessage(event) {
         minutesWarning.classList.add("hidden");
     }
  }
-
-function formatMinutes() {
-  if(userMinutes.value.length >= 2) {
-    currentActivity.minutes = userMinutes.value;
-  } else if(userMinutes.value.length === 1) {
-    currentActivity.minutes = 0 + userMinutes.value;
-  }
-}
-
-function formatSeconds() {
-  if(userSeconds.value.length === 2) {
-    currentActivity.seconds = userSeconds.value;
-  } else if(userSeconds.value.length === 1) {
-    currentActivity.seconds = 0 + userSeconds.value;
-  }
-}
-
-function storeUserInput() {
-  currentActivity.description = userInput.value;
-  formatMinutes();
-  formatSeconds();
-}
-
-function displayTimerPage() {
-  storeUserInput();
-  activitySection.classList.add("hidden");
-  currentActivityPage.classList.remove("hidden");
-  insertActivityInfo();
-  changeStartTimerColor();
-}
-
-function insertActivityInfo() {
-    currentDisplay.innerHTML = ''
-    currentDisplay.innerHTML = `${currentActivity.description}
-    <div class="countdown-timer">
-    ${currentActivity.minutes}:${currentActivity.seconds}
-    </div>`
-}
-
-function countdownAndInsertActivityInfo() {
-  if (currentActivity.minutes > 0 || currentActivity.seconds > 0) {
-    currentActivity.countdown();
-    insertActivityInfo();
-    setTimeout(countdownAndInsertActivityInfo, 1000);
-  }
-}
-
-function changeStartTimerColor() {
-  if(currentActivity.category === "Study") {
-    startTimer.setAttribute("id", "green")
-  } else if(currentActivity.category === "Meditate") {
-    startTimer.setAttribute("id", "purple")
-  } else if(currentActivity.category === "Exercise") {
-    startTimer.setAttribute("id", "orange")
-  }
-  startTimer.style.color = "white";
-}
 
 function resetStudyIcon() {
   studyActivity.setAttribute("id", "");
@@ -160,6 +116,12 @@ function resetExerciseIcon() {
   exerciseActivity.setAttribute("id", "");
   exerciseIcon.classList.remove("hidden");
   activeExerciseIcon.classList.add("hidden");
+}
+
+function resetIcons() {
+  resetStudyIcon();
+  resetMeditateIcon();
+  resetExerciseIcon();
 }
 
 function activateStudyIcon(){
@@ -180,12 +142,6 @@ function activateExerciseIcon(){
   activeExerciseIcon.classList.remove("hidden");
 }
 
-function resetIcons() {
-  resetStudyIcon();
-  resetMeditateIcon();
-  resetExerciseIcon();
-}
-
 function changeStudyColor() {
   resetIcons();
   studyActivity.id === "" ? activateStudyIcon() : resetStudyIcon();
@@ -204,10 +160,136 @@ function changeExerciseColor() {
   currentActivity.category = "Exercise";
 }
 
-function startCountdown() {
-  setTimeout(countdownAndInsertActivityInfo, 1000)
+//--------------FUNCTIONS for CURRENT ACTIVITY Section--------------
+function formatMinutes() {
+  if(userMinutes.value.length >= 2) {
+    loggedActivity.minutes = userMinutes.value;
+    currentActivity.minutes = userMinutes.value;
+  } else if(userMinutes.value.length === 1) {
+    loggedActivity.minutes = 0 + userMinutes.value;
+    currentActivity.minutes = 0 + userMinutes.value;
+
+  }
 }
 
-//go to HTML and create elements that will hold currentActivity data
-//use querySelector to grab those elements and bring them into our javascript
-//
+function formatSeconds() {
+  if(userSeconds.value.length === 2) {
+    loggedActivity.seconds = userSeconds.value;
+    currentActivity.seconds = userSeconds.value;
+  } else if(userSeconds.value.length === 1) {
+    loggedActivity.seconds = 0 + userSeconds.value;
+    currentActivity.seconds = 0 + userSeconds.value;
+  }
+}
+
+function storeUserInput() {
+  loggedActivity.description = userInput.value;
+  currentActivity.description = userInput.value;
+  formatMinutes();
+  formatSeconds();
+}
+
+function insertActivityInfo() {
+    currentDisplay.innerHTML = ''
+    currentDisplay.innerHTML = `${currentActivity.description}
+    <div class="countdown-timer">
+    ${currentActivity.minutes}:${currentActivity.seconds}
+    </div>`
+}
+
+function changeStartTimerColor() {
+  if(currentActivity.category === "Study") {
+    startTimer.setAttribute("id", "green")
+  } else if(currentActivity.category === "Meditate") {
+    startTimer.setAttribute("id", "purple")
+  } else if(currentActivity.category === "Exercise") {
+    startTimer.setAttribute("id", "orange")
+  }
+  startTimer.style.color = "white";
+}
+
+function displayCurrentActivity() {
+  storeUserInput();
+  newActivitySection.classList.add("hidden");
+  currentActivitySection.classList.remove("hidden");
+  insertActivityInfo();
+  changeStartTimerColor();
+}
+
+function countdownAndInsertActivityInfo() { //could this function be renamed?
+  if (currentActivity.minutes > 0 || currentActivity.seconds > 0) {
+    currentActivity.countdown();
+    insertActivityInfo();
+    setTimeout(countdownAndInsertActivityInfo, 1000);
+    //changed the "startTimer" HTML element from div to button...
+    //in order to fix the repeated clicks = rapid countdown bug,
+    //but not sure if i like this solution (on line below).
+    startTimer.disabled = true;
+  } else {
+    currentActivity.markComplete();
+    startTimer.innerText = "COMPLETE!";
+    logActivityButton.classList.remove("hidden");
+  }
+}
+
+function startCountdown() {
+  setTimeout(countdownAndInsertActivityInfo, 1000);
+}
+
+//--------------FUNCTIONS for LOGGED ACTIVITIES--------------
+function displayLoggedActivity() {
+  loggedActivities.insertAdjacentHTML("afterbegin", `
+  <section class="logged-activity" id=${loggedActivity.id}>
+    <div class="logged-category" id="${loggedActivity.category}">
+      ${loggedActivity.category}
+    </div>
+    <div class="logged-time" id="${loggedActivity.category}"> 
+      ${loggedActivity.minutes} MIN  ${loggedActivity.seconds} SECONDS
+    </div>
+    <div class="logged-description">${loggedActivity.description}</div>
+  </section>
+  `)
+}
+
+//might be able to use this function for all buttons
+//that hide/display a different activity section
+function toggleActivitySection() {
+  if(event.target.className === "log-activity-button"){
+    currentActivitySection.classList.add("hidden");
+    completedActivitySection.classList.remove("hidden");
+  } else if(event.target.className === "create-activity-button") {
+    resetActivitySections();
+    completedActivitySection.classList.add("hidden");
+    newActivitySection.classList.remove("hidden");
+  }
+}
+
+function resetUserInputs() {
+  userInput.value = "";
+  userMinutes.value = "";
+  userSeconds.value = ""
+}
+function resetCurrentActivitySection() {
+  startTimer.innerText = "START";
+  logActivityButton.classList.add("hidden");
+  startTimer.disabled = false;
+}
+
+function resetActivitySections() {
+  resetIcons();
+  resetUserInputs();
+  resetCurrentActivitySection();
+}
+
+function logCurrentActivity() {
+  noActivitiesMessage.classList.add("hidden");
+  loggedActivity.id = currentActivity.id;
+  loggedActivity.category = currentActivity.category;
+  loggedActivity.complete = currentActivity.complete;
+  displayLoggedActivity();
+  toggleActivitySection();
+}
+
+function displayPreviousActivities() {
+  pastActivities.unshift(localStorage.getItem("pastActivties"));
+}

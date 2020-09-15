@@ -30,10 +30,17 @@ class Activity {
   }
 
    saveToStorage() {
-    localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
+     var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
+     if (!activitiesArray) {
+       activitiesArray = [];
+     }
+
+     activitiesArray.unshift(this);
+     localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
+   }
+
+    // localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
     // var retrievedObject = [];
     // retrievedObject.unshift(localStorage.getItem("pastActivties"));
     // var parsedObject = JSON.parse(retrievedObject[0]);
   }
-}
-

@@ -45,6 +45,7 @@ var completedActivitySection = document.querySelector(".completed-activity");
 var completedActivityButton = document.querySelector(".completed-activity-button");
 var createActivityButton = document.querySelector(".create-activity-button");
 
+// var activitiesArray = [];
 var currentActivity = new Activity();
 var loggedActivity = new Activity();
 
@@ -237,13 +238,23 @@ function startCountdown() {
 }
 
 //--------------FUNCTIONS for LOGGED ACTIVITIES--------------
+// function saveToStorage() {
+//   var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
+//   if (!activitiesArray) {
+//     activitiesArray = [];
+//   }
+//
+//   activitiesArray.push(loggedActivity);
+//   localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
+// }
+
 function displayLoggedActivity() {
   loggedActivities.insertAdjacentHTML("afterbegin", `
   <section class="logged-activity" id=${loggedActivity.id}>
     <div class="logged-category" id="${loggedActivity.category}">
       ${loggedActivity.category}
     </div>
-    <div class="logged-time" id="${loggedActivity.category}"> 
+    <div class="logged-time" id="${loggedActivity.category}">
       ${loggedActivity.minutes} MIN  ${loggedActivity.seconds} SECONDS
     </div>
     <div class="logged-description">${loggedActivity.description}</div>
@@ -287,9 +298,16 @@ function logCurrentActivity() {
   loggedActivity.category = currentActivity.category;
   loggedActivity.complete = currentActivity.complete;
   displayLoggedActivity();
+  loggedActivity.saveToStorage();
   toggleActivitySection();
 }
 
-function displayPreviousActivities() {
-  pastActivities.unshift(localStorage.getItem("pastActivties"));
-}
+// function displayPreviousActivities() {
+//   pastActivities.unshift(localStorage.getItem("pastActivties"));
+// }
+
+
+// function displayNewestActivity() {
+//   loggedActivity.saveToStorage();
+//
+// }

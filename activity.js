@@ -1,10 +1,12 @@
 class Activity {
-  constructor(category, description, minutes, seconds) {
+  constructor(category, description, minutes, seconds, initialMinutes, initialSeconds) {
     this.id = Date.now();
     this.category = category;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
+    this.initialMinutes = initialMinutes;
+    this.initialSeconds = initialSeconds;
     this.complete = false;
   }
 

@@ -36,7 +36,11 @@ var startTimer = document.querySelector(".start-timer");
 
 var logActivityButton = document.querySelector(".log-activity-button");
 var loggedActivities = document.querySelector(".logged-activities");
+var loggedCategory = document.querySelector(".logged-category");
+var loggedDescription = document.querySelector(".logged-description");
+var loggedTime = document.querySelector(".logged-time");
 var noActivitiesMessage = document.querySelector(".no-activities-message");
+
 var completedActivitySection = document.querySelector(".completed-activity");
 var completedActivityButton = document.querySelector(".completed-activity-button");
 var createActivityButton = document.querySelector(".create-activity-button");
@@ -241,6 +245,7 @@ function displayLoggedActivities() {
     <div class="logged-description">${loggedActivity.description}</div>
   </section>
   `)
+  // assignLoggedActivityColor();
 }
 
 //might be able to use this function for all buttons
@@ -250,9 +255,27 @@ function toggleActivitySection(event) {
     currentActivitySection.classList.add("hidden");
     completedActivitySection.classList.remove("hidden");
   } else if(event.target.className === "create-activity-button") {
+    resetActivitySections();
     completedActivitySection.classList.add("hidden");
     newActivitySection.classList.remove("hidden");
   }
+}
+
+function resetUserInputs() {
+  userInput.value = "";
+  userMinutes.value = "";
+  userSeconds.value = ""
+}
+function resetCurrentActivitySection() {
+  startTimer.innerText = "START";
+  logActivityButton.classList.add("hidden");
+  startTimer.disabled = false;
+}
+
+function resetActivitySections() {
+  resetIcons();
+  resetUserInputs();
+  resetCurrentActivitySection();
 }
 
 function logCurrentActivity() {

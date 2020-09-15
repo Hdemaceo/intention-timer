@@ -240,7 +240,23 @@ function startCountdown() {
 
 //--------------FUNCTIONS for LOGGED ACTIVITIES--------------
 function displayStoredActivities() {
-  for (var i = 0; i < )
+  var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
+  if (activitiesArray.length !== 0) {
+    noActivitiesMessage.classList.add('hidden');
+  }
+  for (var i = 0; i < activitiesArray.length; i++) {
+    loggedActivities.insertAdjacentHTML("afterbegin", `
+    <section class="logged-activity" id=${activitiesArray[i].id}>
+      <div class="logged-category" id="${activitiesArray[i].category}">
+        ${activitiesArray[i].category}
+      </div>
+      <div class="logged-time" id="${activitiesArray[i].category}">
+        ${activitiesArray[i].minutes} MIN  ${activitiesArray[i].seconds} SECONDS
+      </div>
+      <div class="logged-description">${activitiesArray[i].description}</div>
+    </section>
+    `)
+  }
 }
 
 function displayLoggedActivity() {

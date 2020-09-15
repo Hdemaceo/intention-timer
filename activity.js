@@ -34,8 +34,7 @@ class Activity {
      if (!activitiesArray) {
        activitiesArray = [];
      }
-
-     activitiesArray.unshift(this);
+     activitiesArray.push(this);
      localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
    }
 

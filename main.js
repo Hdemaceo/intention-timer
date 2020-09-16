@@ -6,8 +6,6 @@ var exerciseActivity = document.querySelector(".exercise");
 
 var currentActivitySection = document.querySelector(".current-activity");
 var currentDisplay = document.querySelector(".current-activity-display");
-var countdownTimer = document.querySelector(".countdown-timer");
-var bodyTimer = document.querySelector(".body-timer");
 
 var studyIcon = document.querySelector(".study-icon");
 var activeStudyIcon = document.querySelector(".study-icon-active");
@@ -26,7 +24,6 @@ var categoryWarning = document.querySelector(".category-warning");
 var descriptionWarning = document.querySelector(".description-warning");
 var minutesWarning = document.querySelector(".minutes-warning");
 var secondsWarning = document.querySelector(".seconds-warning");
-
 var startTimer = document.querySelector(".start-timer");
 
 var logActivityButton = document.querySelector(".log-activity-button");
@@ -39,6 +36,7 @@ var noActivitiesMessage = document.querySelector(".no-activities-message");
 var completedActivitySection = document.querySelector(".completed-activity");
 var completedActivityButton = document.querySelector(".completed-activity-button");
 var createActivityButton = document.querySelector(".create-activity-button");
+
 var currentActivity = new Activity();
 
 //--------------EVENT LISTENERS--------------:
@@ -215,14 +213,12 @@ function countdownAndInsertActivityInfo() {
     setTimeout(countdownAndInsertActivityInfo, 1000);
   } else {
     currentActivity.markComplete();
-    startTimer.innerText = "COMPLETE!";
-    logActivityButton.classList.remove("hidden");
   }
 }
 
-function startCountdown(event) {
-  event.preventDefault();
+function startCountdown() {
   setTimeout(countdownAndInsertActivityInfo, 1000);
+  startTimer.disabled = true;
 }
 
 //--------------FUNCTIONS for LOGGED ACTIVITIES--------------
@@ -248,10 +244,10 @@ function displayStoredActivities() {
 }
 
 function toggleActivitySection() {
-  if(event.target.className === "log-activity-button"){
+  if (event.target.classList.contains("log-activity-button")) {
     currentActivitySection.classList.add("hidden");
     completedActivitySection.classList.remove("hidden");
-  } else if(event.target.className === "create-activity-button") {
+  } else if (event.target.classList.contains("create-activity-button")) {
     resetActivitySections();
     completedActivitySection.classList.add("hidden");
     newActivitySection.classList.remove("hidden");

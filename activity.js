@@ -26,8 +26,10 @@ class Activity {
   }
 
   markComplete() {
-        if (this.seconds == 0 && this.minutes == 0) {
+    if (this.seconds == 0 && this.minutes == 0) {
       this.complete = true;
+      startTimer.innerText = "COMPLETE!";
+      logActivityButton.classList.remove("hidden");
     }
   }
 
@@ -39,9 +41,4 @@ class Activity {
      activitiesArray.push(this);
      localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
    }
-
-    // localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
-    // var retrievedObject = [];
-    // retrievedObject.unshift(localStorage.getItem("pastActivties"));
-    // var parsedObject = JSON.parse(retrievedObject[0]);
   }

@@ -213,6 +213,7 @@ function countdownAndInsertActivityInfo() {
     currentActivity.countdown();
     insertActivityInfo();
     setTimeout(countdownAndInsertActivityInfo, 1000);
+    startTimer.disabled = true;
   } else {
     currentActivity.markComplete();
   }

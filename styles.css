@@ -15,6 +15,7 @@ indent logged-activities.
 /* * {
   border: solid #FFF
 } */
+
 *:focus {
   outline: none;
 }
@@ -44,6 +45,7 @@ main {
   flex-direction: column;
   padding: 30px;
   border-right: solid 4px #46424D;
+  box-shadow: 5px 5px #26222D;
 }
 
 .title {
@@ -56,6 +58,7 @@ main {
   border-radius: 10px;
   background: #46424D;
   padding: 30px 100px;
+  box-shadow: 5px 5px #26222D;
 }
 
 .categories {
@@ -207,6 +210,8 @@ input {
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 30px;
+  box-shadow: 5px 5px #26222D;
+
 }
 
 #Study {
@@ -284,6 +289,7 @@ input {
   background: #46424D;
   padding: 50px 20px;
   height: 70vh;
+  box-shadow: 5px 5px #26222D;
 }
 
 .current-activity-display {
@@ -381,7 +387,7 @@ input {
   background: #46424D;
   padding: 50px 20px;
   height: 70vh;
-}
+  box-shadow: 5px 5px #26222D;}
 
 .create-activity-button {
   display: flex;

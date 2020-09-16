@@ -194,9 +194,11 @@ input {
   /* padding: 50px; */
   text-align: center;
 }
+
 .no-activities-message {
   color: #FFF;
 }
+
 .logged-activity {
   color: #FFF;
   font-family: "Montserrat", sans-serif;
@@ -211,7 +213,6 @@ input {
   align-items: flex-start;
   margin-top: 30px;
   box-shadow: 5px 5px #26222D;
-
 }
 
 #Study {
@@ -221,33 +222,32 @@ input {
   border-bottom-style: none;
   border-top-style: none;
 }
+
 #Meditate {
   border: solid 4px #C278FD;
   border-left-style: none;
   border-bottom-style: none;
   border-top-style: none;
 }
+
 #Exercise {
   border: solid 4px #FD8078;
   border-left-style: none;
   border-bottom-style: none;
   border-top-style: none;
 }
+
 .logged-category {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   font-size: .7em;
-  /* font-weight: bold; */
-  /* border: solid 4px #FFF;
-  border-left-style: none;
-  border-bottom-style: none;
-  border-top-style: none; */
   width: 28vw;
   margin-left: 10px;
   margin-top: 10px;
 }
+
 .logged-time {
   display: flex;
   flex-direction: column;
@@ -256,11 +256,8 @@ input {
   font-size: .8em;
   margin-left: 10px;
   width: 28vw;
-  /* border: solid 4px #FFF;
-  border-left-style: none;
-  border-bottom-style: none;
-  border-top-style: none; */
 }
+
 .logged-description {
   padding-top: 8px;
   font-size: .6em;
@@ -276,10 +273,6 @@ input {
   border-right: solid 4px #46424D;
 }
 
-/* .current-activity-title {
-  font-size: 2.0em;
-  padding-bottom: 15px;
-} */
 .body-timer {
   border-radius: 10px;
   display: flex;

@@ -6,8 +6,6 @@ var exerciseActivity = document.querySelector(".exercise");
 
 var currentActivitySection = document.querySelector(".current-activity");
 var currentDisplay = document.querySelector(".current-activity-display");
-var countdownTimer = document.querySelector(".countdown-timer");
-var bodyTimer = document.querySelector(".body-timer");
 
 var studyIcon = document.querySelector(".study-icon");
 var activeStudyIcon = document.querySelector(".study-icon-active");

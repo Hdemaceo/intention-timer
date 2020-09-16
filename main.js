@@ -47,7 +47,7 @@ var createActivityButton = document.querySelector(".create-activity-button");
 
 // var activitiesArray = [];
 var currentActivity = new Activity();
-var loggedActivity = new Activity();
+// var loggedActivity = new Activity();
 
 //--------------EVENT LISTENERS--------------:
 studyActivity.addEventListener("click", changeStudyColor);
@@ -165,27 +165,30 @@ function changeExerciseColor() {
 //--------------FUNCTIONS for CURRENT ACTIVITY Section--------------
 function formatMinutes() {
   if(userMinutes.value.length >= 2) {
-    loggedActivity.minutes = userMinutes.value;
+    // loggedActivity.minutes = userMinutes.value;
     currentActivity.minutes = userMinutes.value;
-  } else if(userMinutes.value.length === 1) {
-    loggedActivity.minutes = 0 + userMinutes.value;
-    currentActivity.minutes = 0 + userMinutes.value;
+    currentActivity.initialMinutes = userMinutes.value;
 
+  } else if(userMinutes.value.length === 1) {
+    // loggedActivity.minutes = 0 + userMinutes.value;
+    currentActivity.minutes = 0 + userMinutes.value;
+    currentActivity.initialMinutes = 0 + userMinutes.value;
   }
 }
 
 function formatSeconds() {
   if(userSeconds.value.length === 2) {
-    loggedActivity.seconds = userSeconds.value;
+    // loggedActivity.seconds = userSeconds.value;
     currentActivity.seconds = userSeconds.value;
+    currentActivity.initialSeconds = userSeconds.value;
   } else if(userSeconds.value.length === 1) {
-    loggedActivity.seconds = 0 + userSeconds.value;
+    // loggedActivity.seconds = 0 + userSeconds.value;
     currentActivity.seconds = 0 + userSeconds.value;
+    currentActivity.initialSeconds = 0 + userSeconds.value;
   }
 }
 
 function storeUserInput() {
-  loggedActivity.description = userInput.value;
   currentActivity.description = userInput.value;
   formatMinutes();
   formatSeconds();
@@ -226,7 +229,7 @@ function countdownAndInsertActivityInfo() { //could this function be renamed?
     //changed the "startTimer" HTML element from div to button...
     //in order to fix the repeated clicks = rapid countdown bug,
     //but not sure if i like this solution (on line below).
-    startTimer.disabled = true;
+    // startTimer.disabled = true;
   } else {
     currentActivity.markComplete();
     startTimer.innerText = "COMPLETE!";
@@ -243,6 +246,7 @@ function displayStoredActivities() {
   var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
   if (activitiesArray.length !== 0) {
     noActivitiesMessage.classList.add('hidden');
+    loggedActivities.innerHTML = "";
   }
   for (var i = 0; i < activitiesArray.length; i++) {
     loggedActivities.insertAdjacentHTML("afterbegin", `
@@ -251,7 +255,7 @@ function displayStoredActivities() {
         ${activitiesArray[i].category}
       </div>
       <div class="logged-time" id="${activitiesArray[i].category}">
-        ${activitiesArray[i].minutes} MIN  ${activitiesArray[i].seconds} SECONDS
+        ${activitiesArray[i].initialMinutes} MIN  ${activitiesArray[i].initialSeconds} SECONDS
       </div>
       <div class="logged-description">${activitiesArray[i].description}</div>
     </section>
@@ -259,19 +263,19 @@ function displayStoredActivities() {
   }
 }
 
-function displayLoggedActivity() {
-  loggedActivities.insertAdjacentHTML("afterbegin", `
-  <section class="logged-activity" id=${loggedActivity.id}>
-    <div class="logged-category" id="${loggedActivity.category}">
-      ${loggedActivity.category}
-    </div>
-    <div class="logged-time" id="${loggedActivity.category}">
-      ${loggedActivity.minutes} MIN  ${loggedActivity.seconds} SECONDS
-    </div>
-    <div class="logged-description">${loggedActivity.description}</div>
-  </section>
-  `)
-}
+// function displayLoggedActivity() {
+//   loggedActivities.insertAdjacentHTML("afterbegin", `
+//   <section class="logged-activity" id=${loggedActivity.id}>
+//     <div class="logged-category" id="${loggedActivity.category}">
+//       ${loggedActivity.category}
+//     </div>
+//     <div class="logged-time" id="${loggedActivity.category}">
+//       ${loggedActivity.minutes} MIN  ${loggedActivity.seconds} SECONDS
+//     </div>
+//     <div class="logged-description">${loggedActivity.description}</div>
+//   </section>
+//   `)
+// }
 
 //might be able to use this function for all buttons
 //that hide/display a different activity section
@@ -304,12 +308,12 @@ function resetActivitySections() {
 }
 
 function logCurrentActivity() {
-  noActivitiesMessage.classList.add("hidden");
-  loggedActivity.id = currentActivity.id;
-  loggedActivity.category = currentActivity.category;
-  loggedActivity.complete = currentActivity.complete;
-  displayLoggedActivity();
-  loggedActivity.saveToStorage();
+  // loggedActivity.id = currentActivity.id;
+  // loggedActivity.category = currentActivity.category;
+  // loggedActivity.complete = currentActivity.complete;
+  // displayLoggedActivity();
+  currentActivity.saveToStorage();
+  displayStoredActivities();
   toggleActivitySection();
 }
 

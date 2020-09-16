@@ -8,14 +8,6 @@ Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC */
 
-/*
-indent logged-activities.
-*/
-
-/* * {
-  border: solid #FFF
-} */
-
 *:focus {
   outline: none;
 }
@@ -184,14 +176,10 @@ input {
   flex-direction: column;
   width: 30vw;
 }
-/* .past-activities-title {
-  justify-content: flex-start;
-  font-size: 2.0em;
-} */
+
 .logged-activities {
   justify-content: center;
   font-size: 1.5em;
-  /* padding: 50px; */
   text-align: center;
 }
 
@@ -340,7 +328,6 @@ input {
 }
 
 /* --------------LEFT SECTION: COMPLETED ACTIVITY-------------- */
-
 .completed-activity {
   display: flex;
   flex: auto;
@@ -374,16 +361,7 @@ input {
   margin-top: 70px;
  }
 
-
-
-
-
-
-
-
-
 /* --------------------------------------------------------------- */
-
 .hidden {
   display: none;
 }

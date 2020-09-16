@@ -26,8 +26,10 @@ class Activity {
   }
 
   markComplete() {
-        if (this.seconds == 0 && this.minutes == 0) {
+    if (this.seconds == 0 && this.minutes == 0) {
       this.complete = true;
+      startTimer.innerText = "COMPLETE!";
+      logActivityButton.classList.remove("hidden");
     }
   }
 

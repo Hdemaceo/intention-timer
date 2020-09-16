@@ -215,8 +215,6 @@ function countdownAndInsertActivityInfo() {
     setTimeout(countdownAndInsertActivityInfo, 1000);
   } else {
     currentActivity.markComplete();
-    startTimer.innerText = "COMPLETE!";
-    logActivityButton.classList.remove("hidden");
   }
 }
 

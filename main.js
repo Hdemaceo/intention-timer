@@ -218,8 +218,7 @@ function countdownAndInsertActivityInfo() {
   }
 }
 
-function startCountdown(event) {
-  event.preventDefault();
+function startCountdown() {
   setTimeout(countdownAndInsertActivityInfo, 1000);
 }
 

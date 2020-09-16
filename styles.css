@@ -15,6 +15,9 @@ indent logged-activities.
 /* * {
   border: solid #FFF
 } */
+*:focus {
+  outline: none;
+}
 
 body {
   background: #2B2733;

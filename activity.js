@@ -1,10 +1,12 @@
 class Activity {
-  constructor(category, description, minutes, seconds) {
+  constructor(category, description, minutes, seconds, initialMinutes, initialSeconds) {
     this.id = Date.now();
     this.category = category;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
+    this.initialMinutes = initialMinutes;
+    this.initialSeconds = initialSeconds;
     this.complete = false;
   }
 
@@ -30,10 +32,16 @@ class Activity {
   }
 
    saveToStorage() {
-    localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
+     var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
+     if (!activitiesArray) {
+       activitiesArray = [];
+     }
+     activitiesArray.push(this);
+     localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
+   }
+
+    // localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
     // var retrievedObject = [];
     // retrievedObject.unshift(localStorage.getItem("pastActivties"));
     // var parsedObject = JSON.parse(retrievedObject[0]);
   }
-}
-

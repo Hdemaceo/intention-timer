@@ -303,31 +303,11 @@ input {
 }
 
 .countdown-timer {
-  /* display: flex; */
   font-size: 3.5em;
   font-weight:bolder;
-  /* flex-direction: column; */
   padding: 0px 50px;
 }
 
-/* if start timer is <div>
-.start-timer {
-  color: #FFF;
-  background: #46424D;
-  border: solid 10px #FFF;
-  border-radius: 100%;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.0em;
-  flex-direction: column;
-  padding: 40px;
-  margin-top: 70px;
-} */
-
-/* if start timer is <button> */
 .start-timer {
   color: #FFF;
   background: #46424D;
@@ -346,8 +326,6 @@ input {
 .start-complete {
   display: flex;
   justify-content: center;
-  /* align-content: center; */
-  /* flex-direction: column; */
   width: 100%;
 }
 .log-activity-button {

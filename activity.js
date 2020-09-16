@@ -41,9 +41,4 @@ class Activity {
      activitiesArray.push(this);
      localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
    }
-
-    // localStorage.setItem("pastActivities", JSON.stringify(loggedActivity));
-    // var retrievedObject = [];
-    // retrievedObject.unshift(localStorage.getItem("pastActivties"));
-    // var parsedObject = JSON.parse(retrievedObject[0]);
   }

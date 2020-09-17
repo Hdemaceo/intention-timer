@@ -37,7 +37,7 @@ Our learning goals are to better understand local storage as well as the Git col
 </p>
 
 <p align="center">New Activity page: displaying "Warning Message" underneath invalid "Seconds" input</br>
- <img width="500" height="auto" src="./showcase/new-activity-warning.jpg">
+ <img width="500" height="500" src="./showcase/new-activity-warning.jpg">
 </p>
 <p align="center">Current Activity page: displaying user input with color coordinated Start button</br>
  <img width="500" height="auto" src="./showcase/current-activity.jpg">

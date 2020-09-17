@@ -15,8 +15,7 @@
 -   In terminal, run command "open index.html" to interact with app.
     ## Overview & Learning Goals ::
     For our Mod 1 group project, Intention Timer, the goal of the assignment is to create an application with operational functionality according to the rubric and provided composition.
-
-Our learning goals are to better understand local storage as well as the Git collaborative workflow. Additionally, we would like to utilize this time to obtain better practice at writing code that is not only dynamic and efficient but also user- and developer-friendly.
+    Our learning goals are to better understand local storage as well as the Git collaborative workflow. Additionally, we would like to utilize this time to obtain better practice at writing code that is not only dynamic and efficient but also user- and developer-friendly.
 
 ## Progression ::
 

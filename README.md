@@ -28,16 +28,44 @@ Our learning goals are to…
 9/16: Refactor, refactor, refactor.  Removed unused and commented out code.  
 
 ## Showcase ::
-<p align="center"> </br>
- <img width="460" height="auto" src="_______" alt=" ">
+<p align="center">New Activity page</br>
+ <img width="500" height="auto" src="./showcase/new-activty.jpg">
 </p>
-<p align="center"> </br>
- <img width="460" height="auto" src="_______" alt=" ">
+
+<p align="center">New Activity page: displaying "Warning Message" underneath invalid "Seconds" input</br>
+ <img width="500" height="auto" src="./showcase/new-activity-warning.jpg">
 </p>
-<p align="center"> </br>
- <img width="460" height="auto" src="_______" alt=" ">
+<p align="center">Current Activity page: displaying user input with color coordinated Start button</br>
+ <img width="500" height="auto" src="./showcase/current-activity.jpg">
 </p>
-<p align="center"></br>
- <img width="200" height="auto" src="_______" alt=" ">
+<p align="center">Current Activity page: displaying active start timer of minutes and seconds</br>
+ <img width="500" height="auto" src="./showcase/current-activity-start-click.jpg">
 </p>
+<p align="center">Current Activity page: displaying once the user input time has reached 00:00</br>
+ <img width="500" height="auto" src="./showcase/current-activity-complete.jpg">
+</p>
+<p align="center">Completed Activity page: displaying updated Past Activities section with recent logged activity, as well as a "Create A New Activity" button</br>
+ <img width="500" height="auto" src="./showcase/completed-activity-logged.jpg">
+</p>
+
+<p align="center">New Current Activity page: (displayed after clicking "Create A New Activity" button) with new user activity input fields</br>
+ <img width="500" height="auto" src="./showcase/new-activity-exercise.jpg">
+</p>
+<p align="center">Current Activity page: displaying completed activity</br>
+ <img width="500" height="auto" src="./showcase/current-activity-exercise-log.jpg" alt=" ">
+</p>
+<p align="center">Completed Activity page: displaying updated Past Activities section</br>
+ <img width="500" height="auto" src="./showcase/complete-activity-exercise.jpg" alt=" ">
+</p>
+
+<p align="center">New Current Activity page: displaying new user activity input fields</br>
+ <img width="500" height="auto" src="./showcase/new-activity-study.jpg">
+</p>
+<p align="center">Current Activity page: displaying completed activity</br>
+ <img width="500" height="auto" src="./showcase/current-activity-study.jpg">
+</p>
+<p align="center">Completed Activity page: displaying updated Past Activities section</br>
+ <img width="500" height="auto" src="./showcase/completed-activity-study-logged.jpg">
+</p>
+
 Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/intention-timer-group.html).

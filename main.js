@@ -58,39 +58,39 @@ window.addEventListener("load", displayStoredActivities);
 //--------------FUNCTIONS for NEW ACTIVITY section--------------
 
 function checkForInputs() {
-    if (currentActivity.category === undefined) {
-        categoryWarning.classList.remove("hidden");
-    } else if (userInput.value === "") {
-        descriptionWarning.classList.remove("hidden");
-    } else if (userMinutes.value === ""
-        || isNaN(userMinutes.value)
-        || userMinutes.value.includes(" ")
-        || userMinutes.value < 0
-        || userMinutes.value.charAt(0) === "-") {
-        minutesWarning.classList.remove("hidden");
-    } else if (userSeconds.value === ""
-        || isNaN(userSeconds.value)
-        || userSeconds.value.includes(" ")
-        || userSeconds.value.length > 2
-        || userSeconds.value >= 60
-        || userSeconds.value.charAt(0) === "-") {
-        secondsWarning.classList.remove("hidden");
-    } else {
-      displayCurrentActivity();
-    }
+  if (currentActivity.category === undefined) {
+    categoryWarning.classList.remove("hidden");
+  } else if (userInput.value === "") {
+    descriptionWarning.classList.remove("hidden");
+  } else if (userMinutes.value === "" ||
+    isNaN(userMinutes.value) ||
+    userMinutes.value.includes(" ") ||
+    userMinutes.value < 0 ||
+    userMinutes.value.charAt(0) === "-") {
+    minutesWarning.classList.remove("hidden");
+  } else if (userSeconds.value === "" ||
+    isNaN(userSeconds.value) ||
+    userSeconds.value.includes(" ") ||
+    userSeconds.value.length > 2 ||
+    userSeconds.value >= 60 ||
+    userSeconds.value.charAt(0) === "-") {
+    secondsWarning.classList.remove("hidden");
+  } else {
+    displayCurrentActivity();
+  }
 }
 
 function hideErrorMessage(event) {
-    if (event.target.classList.contains("category")) {
-        categoryWarning.classList.add("hidden");
-    } else if (event.target.className === "input") {
-        descriptionWarning.classList.add("hidden");
-    } else if (event.target.className === "seconds") {
-        secondsWarning.classList.add("hidden");
-    } else if (event.target.className === "minutes") {
-        minutesWarning.classList.add("hidden");
-    }
- }
+  if (event.target.classList.contains("category")) {
+    categoryWarning.classList.add("hidden");
+  } else if (event.target.className === "input") {
+    descriptionWarning.classList.add("hidden");
+  } else if (event.target.className === "seconds") {
+    secondsWarning.classList.add("hidden");
+  } else if (event.target.className === "minutes") {
+    minutesWarning.classList.add("hidden");
+  }
+}
 
 function resetStudyIcon() {
   studyActivity.setAttribute("id", "");
@@ -116,19 +116,19 @@ function resetIcons() {
   resetExerciseIcon();
 }
 
-function activateStudyIcon(){
+function activateStudyIcon() {
   studyActivity.setAttribute("id", "green");
   studyIcon.classList.add("hidden");
   activeStudyIcon.classList.remove("hidden");
 }
 
-function activateMeditateIcon(){
+function activateMeditateIcon() {
   meditateActivity.setAttribute("id", "purple");
   meditateIcon.classList.add("hidden");
   activeMeditateIcon.classList.remove("hidden");
 }
 
-function activateExerciseIcon(){
+function activateExerciseIcon() {
   exerciseActivity.setAttribute("id", "orange");
   exerciseIcon.classList.add("hidden");
   activeExerciseIcon.classList.remove("hidden");
@@ -154,20 +154,20 @@ function changeExerciseColor() {
 
 //--------------FUNCTIONS for CURRENT ACTIVITY Section--------------
 function formatMinutes() {
-  if(userMinutes.value.length >= 2) {
+  if (userMinutes.value.length >= 2) {
     currentActivity.minutes = userMinutes.value;
     currentActivity.initialMinutes = userMinutes.value;
-  } else if(userMinutes.value.length === 1) {
+  } else if (userMinutes.value.length === 1) {
     currentActivity.minutes = 0 + userMinutes.value;
     currentActivity.initialMinutes = 0 + userMinutes.value;
   }
 }
 
 function formatSeconds() {
-  if(userSeconds.value.length === 2) {
+  if (userSeconds.value.length === 2) {
     currentActivity.seconds = userSeconds.value;
     currentActivity.initialSeconds = userSeconds.value;
-  } else if(userSeconds.value.length === 1) {
+  } else if (userSeconds.value.length === 1) {
     currentActivity.seconds = 0 + userSeconds.value;
     currentActivity.initialSeconds = 0 + userSeconds.value;
   }
@@ -180,19 +180,19 @@ function storeUserInput() {
 }
 
 function insertActivityInfo() {
-    currentDisplay.innerHTML = ''
-    currentDisplay.innerHTML = `${currentActivity.description}
+  currentDisplay.innerHTML = ''
+  currentDisplay.innerHTML = `${currentActivity.description}
     <div class="countdown-timer">
     ${currentActivity.minutes}:${currentActivity.seconds}
     </div>`
 }
 
 function changeStartTimerColor() {
-  if(currentActivity.category === "Study") {
+  if (currentActivity.category === "Study") {
     startTimer.setAttribute("id", "green")
-  } else if(currentActivity.category === "Meditate") {
+  } else if (currentActivity.category === "Meditate") {
     startTimer.setAttribute("id", "purple")
-  } else if(currentActivity.category === "Exercise") {
+  } else if (currentActivity.category === "Exercise") {
     startTimer.setAttribute("id", "orange")
   }
   startTimer.style.color = "white";

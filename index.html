@@ -1,90 +1,93 @@
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
-    <meta charset="utf-8">
-    <title>Intention Timer</title>
-  </head>
-  <body>
-    <header>
-      <h1>INTENTION TIMER</h1>
-    </header>
-    <main>
-      <section class="new-activity-section">
-        <div class="new-activity-title title">
-          New Activity
-        </div>
-        <section class="body">
-          <div class="categories">Select a category:
-            <div class="category-names">
-              <div class="category study" id="">
-                <img class="study-icon" src="assets/study.svg">
-                <img class="study-icon-active hidden" src="assets/study-active.svg">
-                Study
-              </div>
-              <div class="category meditate" id="">
-                <img class="meditate-icon" src="assets/meditate.svg">
-                <img class="meditate-icon-active hidden" src="assets/meditate-active.svg">
-                Meditate
-              </div>
-              <div class="category exercise" id="">
-                <img class="exercise-icon" src="assets/exercise.svg">
-                <img class="exercise-icon-active hidden" src="assets/exercise-active.svg">
-                Exercise
-              </div>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Intention Timer</title>
+</head>
+
+<body>
+  <header>
+    <h1>INTENTION TIMER</h1>
+  </header>
+  <main>
+    <section class="new-activity-section">
+      <div class="new-activity-title title">
+        New Activity
+      </div>
+      <section class="body">
+        <div class="categories">Select a category:
+          <div class="category-names">
+            <div class="category study" id="">
+              <img class="study-icon" src="assets/study.svg">
+              <img class="study-icon-active hidden" src="assets/study-active.svg">
+              Study
             </div>
-            <p class="category-warning warning hidden"><img src="assets/warning.svg"> A category is required.</p>
-            <form>
-              <label for="user-input">What would you like to accomplish during this time?</label><br>
-              <input class="input" type="text" name="user-input" value=""><br>
-              <p class="description-warning warning hidden"><img src="assets/warning.svg">  A description is required.</p>
-            <section class="user-time">
-                <section class="user-minutes">
-                  <label for="user-minutes">Minutes</label>
-                  <input class="minutes" type="text" name="user-minutes" value=""><br>
-                  <p class="minutes-warning warning hidden"><img src="assets/warning.svg">  A number is required.</p>
-                  </section>
-                  <section class="user-seconds">
-                    <label for="user-seconds">Seconds</label>
-                    <input type="text" class="seconds" name="user-seconds" value=""><br>
-                    <p class="seconds-warning warning hidden"><img src="assets/warning.svg">  A number between 0 and 59 is required.</p>
-                  </section>
-              </section>
-            </form>
-            <div class="start-section">
-              <button class="start-activity-button">START ACTIVITY</button>
+            <div class="category meditate" id="">
+              <img class="meditate-icon" src="assets/meditate.svg">
+              <img class="meditate-icon-active hidden" src="assets/meditate-active.svg">
+              Meditate
+            </div>
+            <div class="category exercise" id="">
+              <img class="exercise-icon" src="assets/exercise.svg">
+              <img class="exercise-icon-active hidden" src="assets/exercise-active.svg">
+              Exercise
             </div>
           </div>
-        </section>
-      </section>
-      <section class="current-activity hidden">
-        <div class="current-activity-title title">Current Activity</div>
-          <section class="body-timer">
-            <section class="current-activity-display">
+          <p class="category-warning warning hidden"><img src="assets/warning.svg"> A category is required.</p>
+          <form>
+            <label for="user-input">What would you like to accomplish during this time?</label><br>
+            <input class="input" type="text" name="user-input" value=""><br>
+            <p class="description-warning warning hidden"><img src="assets/warning.svg"> A description is required.</p>
+            <section class="user-time">
+              <section class="user-minutes">
+                <label for="user-minutes">Minutes</label>
+                <input class="minutes" type="text" name="user-minutes" value=""><br>
+                <p class="minutes-warning warning hidden"><img src="assets/warning.svg"> A number is required.</p>
+              </section>
+              <section class="user-seconds">
+                <label for="user-seconds">Seconds</label>
+                <input type="text" class="seconds" name="user-seconds" value=""><br>
+                <p class="seconds-warning warning hidden"><img src="assets/warning.svg"> A number between 0 and 59 is required.</p>
+              </section>
             </section>
-            <div class="start-complete">
-              <button class="start-timer" id="">START</button>
-            </div>
-            <button class="log-activity-button hidden">LOG ACTIVITY</button>
-          </section>
-      </section>
-      <section class="completed-activity hidden">
-        <div class="completed-activity-title title">Completed Activity</div>
-        <section class="completed-activity-display">
-          <button class="create-activity-button">CREATE A NEW ACTIVITY</button>
-        </section>
-      </section>
-      <section class="past-activities-section">
-        <div class="past-activities-title title">
-          Past Activities
+          </form>
+          <div class="start-section">
+            <button class="start-activity-button">START ACTIVITY</button>
+          </div>
         </div>
-        <section class="logged-activities">
-          <p class="no-activities-message">You haven't logged any activities yet.<br> Complete the form to the left to get started!</p>
-          </section>
-        </section>
       </section>
-    </main>
-    <script type="text/javascript" src="activity.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-  </body>
+    </section>
+    <section class="current-activity hidden">
+      <div class="current-activity-title title">Current Activity</div>
+      <section class="body-timer">
+        <section class="current-activity-display">
+        </section>
+        <div class="start-complete">
+          <button class="start-timer" id="">START</button>
+        </div>
+        <button class="log-activity-button hidden">LOG ACTIVITY</button>
+      </section>
+    </section>
+    <section class="completed-activity hidden">
+      <div class="completed-activity-title title">Completed Activity</div>
+      <section class="completed-activity-display">
+        <button class="create-activity-button">CREATE A NEW ACTIVITY</button>
+      </section>
+    </section>
+    <section class="past-activities-section">
+      <div class="past-activities-title title">
+        Past Activities
+      </div>
+      <section class="logged-activities">
+        <p class="no-activities-message">You haven't logged any activities yet.<br> Complete the form to the left to get started!</p>
+      </section>
+    </section>
+    </section>
+  </main>
+  <script type="text/javascript" src="activity.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+
 </html>

@@ -27,7 +27,7 @@ header {
 main {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 90vh;
 }
 
 /* --------------LEFT SECTION: NEW ACTIVITY-------------- */
@@ -37,7 +37,6 @@ main {
   flex-direction: column;
   padding: 30px;
   border-right: solid 4px #46424D;
-  box-shadow: 5px 5px #26222D;
 }
 
 .title {
@@ -51,6 +50,7 @@ main {
   background: #46424D;
   padding: 30px 100px;
   box-shadow: 5px 5px #26222D;
+  height: 72vh;
 }
 
 .categories {
@@ -83,10 +83,10 @@ main {
 .category {
   color: #FFF;
   background: #46424D;
-  border: solid 4px #FFF;
+  border: solid 2px #FFF;
   border-radius: 4px;
-  width: 150px;
-  height: 50px;
+  width: 120px;
+  height: 35px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -103,8 +103,8 @@ img {
 form {
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 10px;
   justify-content: space-around;
 }
 
@@ -113,24 +113,25 @@ input {
   border: none;
   border-bottom: solid 1px #FFF;
   color: #FFF;
-  height: 50px;
+  height: 30px;
   font-size: .9em;
 }
 
 .warning {
   color: #EFB7EC;
   font-size: .7em;
+  padding-top: 1px;
 }
 
 .user-time {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding-top: 50px;
 }
 
 .time-warnings {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -151,10 +152,10 @@ input {
 .start-section {
   display: flex;
   flex-direction: row-reverse;
-  padding-bottom: 40px;
 }
 
 .start-activity-button {
+  position: absolute;
   color: #46424D;
   background: #FFF;
   border: #FFF;
@@ -170,6 +171,11 @@ input {
 }
 
 /* --------------RIGHT SECTION: PAST ACTIVITIES-------------- */
+.past-activities-title{
+  font-size: 2.0em;
+  padding-bottom: 0px;
+  justify-content: flex-start;
+}
 .past-activities-section {
   padding: 30px;
   display: flex;
@@ -191,7 +197,7 @@ input {
   color: #FFF;
   font-family: "Montserrat", sans-serif;
   background: #46424D;
-  border-radius: 10px;
+  border-radius: 5px;
   width: auto;
   height: 95px;
   display: flex;
@@ -199,7 +205,7 @@ input {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 30px;
+  margin-top: 20px;
   box-shadow: 5px 5px #26222D;
 }
 
@@ -259,17 +265,20 @@ input {
   flex-direction: column;
   padding: 30px;
   border-right: solid 4px #46424D;
+  height: 100vh;
+  /* height: 74vh; */
 }
 
 .body-timer {
   border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background: #46424D;
-  padding: 50px 20px;
-  height: 80vh;
+  padding: 40px 10px;
+  height: 70vh;
   box-shadow: 5px 5px #26222D;
 }
 
@@ -299,6 +308,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.5em;
   flex-direction: column;
   margin-top: 90px;
@@ -344,7 +354,7 @@ input {
   justify-content: flex-start;
   background: #46424D;
   padding: 50px 20px;
-  height: 70vh;
+  height: 74vh;
   box-shadow: 5px 5px #26222D;}
 
 .create-activity-button {

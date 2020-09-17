@@ -33,14 +33,14 @@ Our learning goals are to better understand local storage as well as the Git col
 ## Showcase ::
 
 <p align="center">New Activity page</br>
- <img width="500" height="auto" src="./showcase/new-activity.jpg">
+ <img width="800" height="500" src="./showcase/new-activity.jpg">
 </p>
 
 <p align="center">New Activity page: displaying "Warning Message" underneath invalid "Seconds" input</br>
- <img width="500" height="500" src="./showcase/new-activity-warning.jpg">
+ <img width="900" height="500" src="./showcase/new-activity-warning.jpg">
 </p>
 <p align="center">Current Activity page: displaying user input with color coordinated Start button</br>
- <img width="500" height="auto" src="./showcase/current-activity.jpg">
+ <img width="1000" height="500" src="./showcase/current-activity.jpg">
 </p>
 <p align="center">Current Activity page: displaying active start timer of minutes and seconds</br>
  <img width="500" height="auto" src="./showcase/current-activity-start-click.jpg">

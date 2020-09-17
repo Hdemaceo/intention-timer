@@ -52,10 +52,10 @@ Our learning goals are to better understand local storage as well as the Git col
  <img width="500" height="auto" src="./showcase/new-activity-exercise.jpg">
 </p>
 <p align="center">Current Activity page: displaying completed activity</br>
- <img width="500" height="auto" src="./showcase/current-activity-exercise-log.jpg" alt=" ">
+ <img width="500" height="auto" src="./showcase/current-activity-exercise-log.jpg">
 </p>
 <p align="center">Completed Activity page: displaying updated Past Activities section</br>
- <img width="500" height="auto" src="./showcase/complete-activity-exercise.jpg" alt=" ">
+ <img width="500" height="auto" src="./showcase/complete-activity-exercise.jpg">
 </p>
 
 <p align="center">New Current Activity page: displaying new user activity input fields</br>

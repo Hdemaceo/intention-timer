@@ -33,7 +33,7 @@ Our learning goals are to better understand local storage as well as the Git col
 ## Showcase ::
 
 <p align="center">New Activity page</br>
- <img width="500" height="auto" src="./showcase/new-activty.jpg">
+ <img width="500" height="auto" src="./showcase/new-activity.jpg">
 </p>
 
 <p align="center">New Activity page: displaying "Warning Message" underneath invalid "Seconds" input</br>

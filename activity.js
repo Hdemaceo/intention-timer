@@ -13,15 +13,15 @@ class Activity {
   countdown() {
     if (this.seconds >= 0) {
       this.seconds -= 1;
-        if (this.seconds < 10 && this.seconds >= 0) {
-            this.seconds = "0" + this.seconds;
-        } else if (this.seconds < 0) {
-          this.seconds = 59;
-          this.minutes -= 1;
-          if (this.minutes < 10) {
-            this.minutes = "0" + this.minutes;
-          }
+      if (this.seconds < 10 && this.seconds >= 0) {
+        this.seconds = "0" + this.seconds;
+      } else if (this.seconds < 0) {
+        this.seconds = 59;
+        this.minutes -= 1;
+        if (this.minutes < 10) {
+          this.minutes = "0" + this.minutes;
         }
+      }
     }
   }
 
@@ -33,12 +33,12 @@ class Activity {
     }
   }
 
-   saveToStorage() {
-     var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
-     if (!activitiesArray) {
-       activitiesArray = [];
-     }
-     activitiesArray.push(this);
-     localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
-   }
+  saveToStorage() {
+    var activitiesArray = JSON.parse(localStorage.getItem("activityLog"));
+    if (!activitiesArray) {
+      activitiesArray = [];
+    }
+    activitiesArray.push(this);
+    localStorage.setItem("activityLog", JSON.stringify(activitiesArray));
   }
+}

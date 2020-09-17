@@ -12,19 +12,19 @@
 - Read the README.md
 - In terminal, run command "open index.html" to interact with app.
 ## Overview & Learning Goals ::
-For our Mod 1 group project, Intention Timer, we've been given a repository as well as a basic HTML layout to work on. The intended goal is to create an application with operational functionality according to the rubric and provided composition.
+For our Mod 1 group project, Intention Timer, the goal of the assignment is to create an application with operational functionality according to the rubric and provided composition.
 
-Our learning goals are to…
+Our learning goals are to better understand local storage as well as the Git collaborative workflow. Additionally, we would like to utilize this time to obtain better practice at writing code that is not only dynamic and efficient but also user- and developer-friendly.
 
 ## Progression ::
-9/8: Completed DTR, made GitHub repository, and familiarized ourselves with the given rubric. We then began constructing and designing our application as outlined in Iteration 0 within the rubric. Once that was completed, we moved onto Iteration 1 by creating an Activity class with a set of properties and methods to be utilized in future iterations of the project. We then made some progress on Iteration 2. The first goal of Iteration 2 is to provide specific functionality for when the “study”, “meditate” and “exercise” activities are clicked.
-9/9: Tightened up some of our styling to make the app match the Comp more closely. We began giving functionality to the app to capture information from the input fields and eventually display it on the countdown timer page.  
-9/10: Today we finished up Iteration 2 by creating fail-safes to prevent users from inputting information that is not relevant to the app.  We designed it so that error messages will appear if a user attempts to advance onto the timer page while a field is incorrectly entered.  The error messages then disappear once acceptable information is reentered into those input fields.  In addition, we tidied up some more CSS stylings.  
-9/11: Built a functioning countdown timer that used the captured time entered by the user on the previous page as the initial time to countdown from. More refactoring and tidying to finish up Iteration 3.
-9/12: Began working on Iteration 4.  Layed out a plan of attack and started creating features to allow activities to be logged after the timer hit 0.  Started prepping styling for the “logged activities section.”  
+9/8: Completed DTR, made GitHub repository, and familiarized ourselves with the given rubric. We then began constructing and designing our application as outlined in Iteration 0 within the rubric. Once that was completed, we moved onto Iteration 1 by creating an Activity class with a set of properties and methods to be utilized in future iterations of the project. We then made some progress on Iteration 2. The first goal of Iteration 2 is to provide specific functionality for when the “Study”, “Meditate” and “Exercise” activities are clicked.
+9/9: Tightened up some of our styling to make the app match the composition more closely. We began giving functionality to the application so that it captures information from the user input fields to then eventually display it on the Current Activity page.  
+9/10: Today we finished up Iteration 2 by creating fail-safes to prevent users from logging information that is not relevant to the app.  We designed it so that error messages will appear if a user attempts to advance onto the Current Activity page while a field is incorrectly entered. The error messages disappear only once acceptable information has been entered into those input fields. In addition, we cleaned up some of our CSS stylings.  
+9/11: Built a functioning countdown timer that applies the minutes and seconds inputs entered by the user from the New Activity page. Once this was completed we began refactoring our work from Iteration 3.
+9/12: Began working on Iteration 4.  Layed out a plan of attack and started creating features to allow activities to be logged after the timer reached "00:00".  Started building the framework styling for the individual logged activities.   
 9/13: On this day, we rested.
-9/14: Finished up Iteration 4.  Established ability to log multiple events and have those events be displayed in the “logged activity section.”  Made the page prettier.
-9/15: Started and finished Iteration 5. Created functionality to locally save logged activities.  Ensured that those logged activities would persist if the page was closed and then reopened again. More refactoring to cut down on “WET” and confusing code.  
+9/14: Finished up Iteration 4. Established ability to log multiple events and have those events be displayed in the Past Activities section. Made the webpage more aesthetically pleasing.
+9/15: Started and finished Iteration 5. Created functionality within our Acticity class that utilizes local storage to save logged activities. Ensured that those logged activities would persist on page reload. More refactoring to cut down on “WET” and confusing code.  
 9/16: Refactor, refactor, refactor.  Removed unused and commented out code.  
 
 ## Showcase ::

@@ -4,10 +4,10 @@
 
 -   [Bruce Gordon](https://github.com/bruce-gordon)
 -   [Joe Lopez](https://github.com/Codo-Baggins)
--   [Demaceo Howard](https://github.com/Hdemaceo)
+-   [Demaceo Howard](https://github.com/demaceo)
     ### Project Links ::
--   [Repo](https://github.com/Hdemaceo/intention-timer)
--   [Deployed Page](https://hdemaceo.github.io/intention-timer/)
+-   [Repo](https://github.com/demaceo/intention-timer)
+-   [Deployed Page](https://demaceo.github.io/intention-timer/)
     ## Set-up ::
 -   Create repository and clone to personal computer
 -   Open in text editor
